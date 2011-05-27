@@ -1,0 +1,109 @@
+//Bendri pastebëjimai
+Select listuose - pasirinkus val=0 Update value bus null
+				- pasirinkus val=-1 nebus updatinama, nes nepraeis validacijos
+
+Po Js failu skompresinimo reikia pakeist +(++H) i + ++H -> nes 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------CSS----------------------------------------------------------------------------------------------------------------------------------
+Po divais su float
+	#footer {clear: both;}
+arba
+	div.container {	overflow: hidden;width: 100%;}
+jei sekantys apacioj:
+	img.floatRightClear {float: right; clear: right; }
+
+The CSS (to float the images to the left):
+img.float { float:left;clear:left; margin:5px;}
+
+And to the right:
+img.float { float:right;clear:right; margin:5px;}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------JQUERY UI----------------------------------------------------------------------------------------------------------------------------------
+
+
+Buttonas tik su irasu
+<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Pridëti naujà</span></button>
+-----------------------------------------------------------------------------------------
+Buttonas tik su paveiksliuku
+<button title='Patvirtinti ávykio vieà' class='ui-button ui-widget ui-state-default ui-button-icon-only ui-corner-all ui-button-icon' id='btnEditMap'
+tabindex='-1'><span class='ui-button-icon-primary ui-icon ui-icon-folder-open'></span>
+<span class="ui-button-text">&nbsp;</span>
+-----------------------------------------------------------------------------------------
+<<<<<jquery-ui-1.8.10.custom.css>>>>
+.ui-button .ui-button-text { display: block; line-height: 1;  }
+.ui-button-text-only .ui-button-text { padding: .2em 1em; }
+$('#dialog_NewEventWindow').button({ icons: { primary: "ui-icon-circle-plus"} });
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------DATATABLE----------------------------------------------------------------------------------------------------------------------------------
+Datatable Delete:
+var row = $(this).closest("tr").get(0);
+oTable.fnDeleteRow(oTable.fnGetPosition(row));
+--------------------------------------------------------------------------------------------------------------
+Get Updated/AddedRow
+var a = oTable.fnAddData([whatever]);
+var nTr = oTable.fnSettings().aoData[ a[0] ].nTr;
+--------------------------------------------------------------------------------------------------------------
+Datatable find and mark td or etc
+$('#mytable tbody tr').filter(function(){
+      return $('td:first', this).text() === "flag";
+}).css('background-color','red').children().height(60);
+--------------------------------------------------------------------------------------------------------------
+$('#example').dataTable( {
+		"bPaginate": false,
+		"bLengthChange": false,
+		"bFilter": true,
+		"bSort": false,
+		"bInfo": false,
+		"bAutoWidth": false } );
+--------------------------------------------------------------------------------------------------------------
+Galim panaudot filtravimui
+$('select#engines').change( function() { oTable.fnFilter( $(this).val() ); } );
+--------------------------------------------------------------------------------------------------------------
+var MyOpt={ Dom: { gHead: "<span id='barChosenPeriod'></span>", GridID: "proc_Accidents", DivID: "GridAccidents" }, RENDER_OPT: { fnRowCallback: _fnRowCallback, clickEvtIsLive: 0, colorAfterNewInsert: 0} };    //
+RENDER_OPT.clickEvtIsLive=1,colorAfterNewInsert
+var MyOpt={ Filter: { ColName: null, ColValue: null }, Dom: { gHead: "", GridID: "EditableGrid", DivID: "divEditableGrid" }, RENDER_OPT: { sScrollX: "99%"} };
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------REGEX----------------------------------------------------------------------------------------------------------------------------------
+Two patterns of interest are the greedy match (.*) and the lazy star (.*?). In the first, since a period can represent any character, the asterisk matches until the last
+ occurrence of a pattern, rather than the first. If you're looking for anything within quotes, you might think of using /".*"/. If you use this with a string, such as:
+test="one" or this is also a "test"
+The match begins with the first double-quote and continues until the last one, not the second: ---> "one" or this is also a "test"
+The lazy star forces the match to end on the second occurrence of the double quote, rather than the last: ---> "one"
+-----------------------------------------------------------------------------------------
+var k= /\d+/.exec("Jav25aScript rules")
+if (k[0]){
+console.log(k[0])} -------> 25
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------KITA--------------------------------------------------------------------------------------------------------------------------------
+Datos
+('01-09-2001'>'09-08-2001')
+false nes menuo didesnis?
+('2001-09-11'>'2001-08-12')
+fnGetTodayDateString()
+------------------------------------------------------------------------
+$('.hoverme').live('mouseover mouseout', function(event) {
+  if (event.type == 'mouseover') {
+    // do something on mouseover
+  } else {
+    // do something on mouseout
+  }
+});
+--------------------------------------------------------------------------------------------------------------
+JSON.parse('{"Validity":"require().match(\'date\')"}') taip yra ok
+--------------------------------------------------------------------------------------------------------------
+console.log("width:"+g.width()+", class:"+g.attr("class")+", tag:"+g[0].tagName);
+-----------------------------------------------------------------------------------------
+ClaimsControlConnectionString
+public dbDataContext(string connection)
+: base(ConfigurationManager.ConnectionStrings["ClaimsControlConnectionString"].ConnectionString, mappingSource)
+//:base(connection, mappingSource)
+-----------------------------------------------------------------------------------------
+paprastas kodas tipsams inputuose
+<input type="text" name="field-name-here" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter Email To Get Updates':this.value;" value="Enter Email To Get Updates" />
+
+

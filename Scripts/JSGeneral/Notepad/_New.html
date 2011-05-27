@@ -1,0 +1,46 @@
+<h2 style="margin: 15px; display: inline-block">Naujo ávykio registravimas</h2>
+<a href="/">(Atgal á ávykiø sàraðà)</a>
+<ul id='ulWhiteMenu'>
+   <li><a href="#AccidentForm"><span>Ávykio kortelë</span></a></li>
+   <li><a href="#AccDocs"><span>Ávykio dokumentai</span></a></li>
+</ul>
+<div id="AccidentForm" style="-moz-border-radius: 0 0 0 0; border-width: 0.8px; border-color: #C0C0C0 #FFFFFF #C0C0C0 #FFFFFF; border-style: ridge;"
+   class="inputform" data-ctrl='{"NewRec":1,"Source":"tblAccidents"}'>@* style="border-width: 0.8px; border-color: #C0C0C0; border-style: ridge;"*@
+   <div class='HalfDivleft1 border'>
+      <div>
+         <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"AccidentTypeID","classes":"UpdateField","id":"lstAccidentTypes","labelType":"Top"}'>
+         </div>
+         <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"DriverID","classes":"UpdateField","id":"lstDrivers","labelType":"Top"}'></div>
+      </div>
+      <div class='ExtendIt' data-ctrl='{"Field":"ShortNote","classes":"UpdateField","id":"ShortNote","labelType":"Top"}'></div>
+      <div class='ExtendIt' data-ctrl='{"Field":"Date","classes":"UpdateField","id":"Date","labelType":"Top","Markup":{"Ctrl":"DateTime","Defaults":"Today","Plugin":["datepicker"]}}'>
+      </div>
+      <div>
+         <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"IsNotOurFault","classes":"UpdateField","id":"IsNotOurFault","labelType":"Top"}'>
+         </div>
+         <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"IsOtherParticipants","classes":"UpdateField","id":"IsOtherParticipants","labelType":"Top"}'>
+         </div>
+      </div>
+      <div class='ExtendIt' data-ctrl='{"Field":"LongNote","classes":"UpdateField","id":"LongNote","labelType":"Top"}'></div>
+      <div></div>@*Mygtukai*@ </div>
+   @*---------------------------------------------------------------*@
+   <div class='HalfDivright1'>
+      <div id='divMapHead'>@*---------------------------------------------------------------*@
+         <div class='box border'>
+            <div class='dialog-form-label'>Ávykio vieta:</div>
+            <span style='font-size: medium; font-weight: bold; float: left;' id='txtPlace'>Nurodykite spragtelëjimu þemëlapyje..</span><a style='font-size: small;
+               float: right; margin-right: 20px;' href="#">Keisti</a>
+            <div style="clear: both;"></div>
+         </div>
+         @*---------------------------------------------------------------*@
+         <div style="background-color: #8598ad; margin-top: 3%; padding: 3%;">
+            <div style="color: #FFFFFF; font-size: smaller;">Áveskite miestà arba spustelkite ant jo þemëlapyje:</div>
+            <input type='text' style="width: 70%;" id='inputChooseTown' data-ctrl='{"Tip":"Áveskite miestà parodyti þemëlapyje.."}' class='text ui-widget-content ui-corner-all defaultText defaultTextActive' />
+            <a style="margin-right: 2%;" href="#">Rodyti þemëlapyje</a>
+            @* <div style="clear: both;"></div>*@ </div>
+      </div>
+      <div id='divMap'>map</div>
+   </div>
+   <div class='clearfix'></div>
+</div>
+<div id="AccDocs"></div>

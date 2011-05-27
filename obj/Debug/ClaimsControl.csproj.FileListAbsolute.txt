@@ -1,0 +1,6 @@
+f:\visual studio 2010\Projects\ClaimsControl\ClaimsControl\obj\Debug\ResolveAssemblyReference.cache
+f:\visual studio 2010\Projects\ClaimsControl\ClaimsControl\bin\ClaimsControl.dll
+f:\visual studio 2010\Projects\ClaimsControl\ClaimsControl\bin\ClaimsControl.pdb
+f:\visual studio 2010\Projects\ClaimsControl\ClaimsControl\obj\Debug\ClaimsControl.dll
+f:\visual studio 2010\Projects\ClaimsControl\ClaimsControl\obj\Debug\ClaimsControl.pdb
+F:\Visual Studio 2010\Projects\ClaimsControl\ClaimsControl\bin\Elmah.dll

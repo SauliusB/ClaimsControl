@@ -1,0 +1,15 @@
+﻿@*Context.User.Identity.Name*@
+@if (Request.IsAuthenticated) {
+   <text> <img class="floatLeft" alt="Logo" src="../../Content/images/Logo.png" /><span style="float: left;"><b>Claims</b>Control</span>
+   <span id='spanLogAction' onclick="location='/Account/LogOff'">@*@Html.ActionLink("Atsijunti", "LogOff", "Account")*@ Atsijungti </span>
+   <span id='spanLogName'>@CC.Classes.UserData.UserName</span>
+   <img class="floatRight" src="../../Content/images/Zvaigzde.png" />
+
+   </text>
+}
+else {
+   <text> <span style="float: left;"><img alt="Logo" src="../../Content/images/Logo.png" /><b>Claims</b>Control</span>
+   <span id='spanLogAction' onclick="location='/Account/LogOn'">@*@Html.ActionLink("Prisijungti", "LogOn", "Account")*@ Prisijungti </span>
+   <span id='spanLogName'><img src="../../Content/images/Zvaigzde.png"/>@CC.Classes.UserData.UserName</span>
+   </text>
+} 

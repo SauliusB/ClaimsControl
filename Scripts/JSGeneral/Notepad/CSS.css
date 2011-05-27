@@ -1,0 +1,60 @@
+/*------------------------------------Overlap borders to highlight tab-----------------------------------------------------------------------------------------------------------------------------*/
+#ulMainMenu li.ui-tabs-selected { background-color: #FFFFFF; background-image: none; padding-bottom: 5px; margin-bottom: -5px; }
+/*------------------------------------Resizing container------------------------------------------------------------------------------------------------------------------------------*/
+div#mapcontainer { clear:both; width:100%; min-height: 600px; }
+div#main { float:left; margin-left: 10px; width: 500px; height: 400px; }
+div#sidebar { float:left; margin-top:10px; margin-right:10px; width: 155px; height: 405px;}
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*CSS TRICKS FOR FLOATING AND FIXING FLOATS*/
+.float_left {float: left;}
+.float_right {float: right;}
+.clearfix:after
+{
+content: ".";
+display:block;
+height:0;
+clear:both;
+visibility:hidden;
+}
+.clearfix
+{
+display:inline-block;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+UI Draggables
+Draggable elements are contrained by their containers (unless overflow=visible). However, an element that is a child of the 'body' can overlay all other elements on the page.
+The draggables widget has a 'helper' option that allows you to clone the draggable element, and append this clone to the page body. This avoids the containment/overflow issue completely, since the element being dragged is no longer inside any layout pane.
+Here is sample code to accomplish this. (slightly different than for the sortable widget)
+$(".myDraggables").draggable({ 
+   // create a clone & append it to 'body' 
+   helper: function (e,ui) {
+      return $(this).clone().appendTo('body').css('zIndex',5).show();
+   } 
+}) 
+SEE the Droppable Between Panes demo
+If you simply want to 'drag' the original element anywhere on the page, the simplest solution is to not put the element inside a pane - make it a child of the BODY instead, with a zIndex of 5. This will make it float over top of the Layout - completely independant of it. If you need more control over the draggable, I recommend using a droppable target. You could make an entire 'pane' a droppable target, which would provide a 'drop' event you can use to run your own custom code.
+For general information on dragging elements between layout-panes, see the Draggable Elements tip below.
+UI Droppables
+The droppables widget is always used with draggable elements. As long your draggables use the helper noted above, the droppable does not require anything special
+$(".myDroppables").droppable({ 
+   accept: '.myDraggables'
+}) 
+SEE the Droppable Between Panes demo
+UI Sortables
+The sortables widget has a 'helper' option that allows you to clone the draggable element, and append this clone to the page body. This avoids the containment/overflow issue completely, since the element being dragged is no longer inside any layout pane.
+Here is sample code to accomplish this. (slightly different than for the draggable widget)
+$(".mySortables").sortable({ 
+   // create a clone & append it to 'body' 
+   helper: function (e,ui) {
+      return $(ui).clone().appendTo('body').show();
+   } 
+}) 
+SEE the Droppable Between Panes demo
+UI Date-Picker
+The Date-Picker widgets auto-generates elements to create a popup calendar. These elements are appended to the page body, as they should be. However, by default no zIndex is applied, therefore the popup calendar appears 'under' the layout-panes instead of 'above' as a popup needs to be.
+So when using the Date-Picker widget with Layout, add this CSS rule...
+#ui-datepicker-div {
+    /* Minimum of '5' is required */
+    z-index: 5;
+}

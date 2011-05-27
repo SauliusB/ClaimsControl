@@ -1,0 +1,178 @@
+<tr class="odd row_selected ui-widget-header">
+<td>5</td>
+<td><b>2011.01.26</b></td>
+<td><div><b>Lt, Miklusënai</b></div>Vagystë</td>
+<td><div><b>Apiplëðë2</b></div>11000</td>
+<td align="right"><div>Visos þalos: <b>3</b>
+</div>Atviros: <b>3</b></td>
+<td><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-corner-all ui-widget" href="/Cards/Accident/5">
+<span class="ui-icon ui-icon-pencil"></span></a></td>
+</tr>
+ 
+ 
+ $('tr.row_selected').find('td:first').html()
+ oTable.fnGetData(oTable.fnGetPosition(nTr))
+ oTable.fnGetData(oTable.fnGetPosition(nTr))
+ 
+ oTable.fnGetPosition(nTr)
+_fnRowCallback(nRow, aData, iDisplayIndex, iDisplayIndexFull)
+ _fnRowCallback(nTr, aData)
+if(!Call_fnRowCallback) return nRow;
+
+
+$(_fnRowCallback(nTr, aData)).html()
+$(nTr).html()
+
+<!-------------------------------------------------------------------------------------------------->
+
+
+<tr class="row_colapsed">
+<td class="td_inrow_colapsed" colspan="6" id="td_row_colapsed">
+<table data-ctrl="{"AccidentID":"5"}" class="tblcolapsable" id="tblClaims"><tbody>
+<tr id="trNewClaimCard"><td colspan="7">
+
+<div data-ctrl="{"id":"0","NewRec":"1","Source":"tblClaims","ClaimTypeID":2}" id="divNewClaimCard">
+<p style="background-color: rgb(211, 209, 186); margin-top: 0px; font-weight: bold;" class="rowHeight" tabindex="0">Pasirinkite þalos tipà:<span style="margin-left: 10px; cursor: pointer; color: rgb(51, 102, 204); text-decoration: underline;">
+TP valdytojø civilinë atsakomybë</span></p>
+<div class="clearfix"></div>
+<p></p>
+<div class="megaselectlistoptions" style="height: 0px;">
+<div class="megaselectlistcolumn"><ul>
+<li data-val="1" tabindex="-1'">KASKO</li><li data-val="2" tabindex="-1'">TP valdytojø civilinë atsakomybë</li>
+<li data-val="3" tabindex="-1'">Veþëjo civilinë atsakomybë</li>
+</ul></div>
+<div class="megaselectlistcolumn"><ul>
+
+<li data-val="4" tabindex="-1'">Ekspeditoriaus civilinë atsakomybë</li><li data-val="5" tabindex="-1'">Darbdavio civilinë atsakomybë</li>
+<li data-val="6" tabindex="-1'">Prastova</li>
+</ul></div>
+<div style="clear: both;"></div></div>
+
+<div class="HalfDivleft">
+<div data-ctrl="{"Value":0,"Field":"VehicleID","classes":"UpdateField","id":"lstVehicles","labelType":"Top"}" class="ExtendIt">
+<label><span>Transporto priemonë</span><input type="text" class="ui-widget-content UpdateField text ui-autocomplete-input ui-corner-left alink" data-ctrl="{"Tip":"Valst.Nr., markë, modelis arba metai..","Source":"tblVehicles","iVal":0,"iText":[1,2,3,4],"Editable":1,"ListType":"None","Value":0,"Field":"VehicleID"}" title="Transporto priemonë" id="lstVehicles" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" style="width: 344px;">
+<button tabindex="-1" title="Pridëti naujà" class="ui-button ui-widget ui-state-default ui-button-text-icon-primary ui-button-icon-only ui-button-icon ui-corner-right ui-state-green" role="button" aria-disabled="false" style="vertical-align: bottom; width: 22px; height: 25px;"><span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span><span class="ui-button-text">&nbsp;</span></button></label></div><div data-ctrl="{"Value":0,"Field":"InsPolicyID","classes":"UpdateField","id":"lstInsPolicies","labelType":"Top"}" class="ExtendIt">
+<label><span>Polisas</span>
+<input type="text" class="ui-widget-content UpdateField text ui-autocomplete-input ui-corner-left alink" data-ctrl="{"Tip":"Pasirinkite ið sàraðo..","Source":"tblInsPolicies","iVal":0,"iText":[1,2],"Editable":1,"ListType":"List","Append":{"id":0,"value":"Neapdrausta"},"Value":0,"Field":"InsPolicyID"}" title="Polisas" id="lstInsPolicies" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" style="width: 322px;" readonly="">
+<button tabindex="-1" title="Parodyti visus" class="ui-button ui-widget ui-state-default ui-button-text-icon-primary ui-button-icon-only ui-button-icon ui-state-focus" role="button" aria-disabled="false" style="vertical-align: bottom; width: 22px; height: 25px;">
+<span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span>
+<span class="ui-button-text">&nbsp;</span>
+</button>
+<button tabindex="-1" title="Pridëti naujà" class="ui-button ui-widget ui-state-default ui-button-text-icon-primary ui-button-icon-only ui-button-icon ui-corner-right ui-state-green" role="button" aria-disabled="false" style="vertical-align: bottom; width: 22px; height: 25px;"><span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
+<span class="ui-button-text">&nbsp;</span></button>
+</label></div>
+
+<div data-ctrl="{"Value":"","Field":"InsurerClaimID","classes":"UpdateField","labelType":"Top"}" a="1" class="ExtendIt">
+<label><span>Þalos nr. draudiko sistemoje</span><input type="text" class="ui-widget-content ui-corner-all UpdateField text" data-ctrl="{"Validity":"require().nonHtml().maxLength(50)","Value":"","Field":"InsurerClaimID"}" title="Þalos nr. draudiko sistemoje"></label></div></div><div class="HalfDivright">
+<div data-ctrl="{"Value":0,"Field":"LossAmount","classes":"LossAmount UpdateField","labelType":"Top"}" a="2" class="ExtendIt"><label><span>Planuojama þalos suma</span>
+<input type="text" class="ui-widget-content ui-corner-all LossAmount UpdateField" data-ctrl="{"Validity":"require().match(number).greaterThanOrEqualTo(0)","Value":0,"Field":"LossAmount"}" title="Planuojama þalos suma"></label>
+</div>
+<div data-ctrl="{"Value":0,"Field":"InsuranceClaimAmount","classes":"InsuranceClaimAmount UpdateField","labelType":"Top"}" a="3" class="ExtendIt">
+<label><span>Planuojama draudimo iðmoka</span><input type="text" class="ui-widget-content ui-corner-all InsuranceClaimAmount UpdateField" data-ctrl="{"Validity":"require().match(number).greaterThanOrEqualTo(0)","Value":0,"Field":"InsuranceClaimAmount"}" title="Planuojama draudimo iðmoka"></label></div><div data-ctrl="{"Value":0,"Field":"IsInjuredPersons","classes":"UpdateField","labelType":"Top"}" a="4" class="ExtendIt">
+<label><input type="checkbox" data-ctrl="{"Value":0,"Field":"IsInjuredPersons"}">Ávykio metu suþaloti þmonës</label></div></div><div class="frmbottom">
+<div class="floatright">
+<button role="button" class="BtnBackGreen btnSaveClaim NewClaim ui-button ui-corner-all ui-button-text-icon-primary" title="Iðsaugoti pakeitimus">
+<span class="ui-button-text">IÐSAUGOTI</span></button>
+<a href="javascript:void(0);return false;" class=" NewClaim" title="Atðaukti pakeitimus" id="btnCancelClaim">Atðaukti</a></div></div></div></td>
+</tr></tbody></table></td></tr>
+
+
+
+
+<!------------------->
+
+<tbody>
+<tr class="odd"><td>9</td><td>2011.02.14</td><td>Lenkija, E77</td><td>Stichinë nelaimë</td><td>2</td><td>2</td><td>13500</td><td>Uraganas</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/9"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+<tr class="even"><td>8</td><td>2011.02.09</td><td>Lenkija, 50</td><td>Vagystë</td><td>4</td><td>4</td><td>13000</td><td>Nuslydo</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/8"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+<tr class="odd row_selected"><td>1</td><td>2011.02.08</td><td>Lenkija, 189</td><td>Treèiøjø asmenø veikla</td><td>3</td><td>2</td><td>2600</td><td>Rumunas atbulas ávaþiavo1</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/1"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+
+<tr class="row_colapsed"><td class="td_inrow_colapsed" colspan="9">
+	<table data-ctrl="{"AccidentID":"2"}" class="tblcolapsable" id="tblClaims"><tbody>
+		<tr data-ctrl="{"ID":1,"VehicleID":4,"InsPolicyID":2,"InsuranceClaimAmount":1000,"InsurerClaimID":"158-25","IsTotalLoss":1,"IsInjuredPersons":0,"Days":0,"PerDay":0}" style="background-color: rgb(204, 204, 204);">
+		<td><span class="ui-icon ui-icon-alert" title="Ði þala dar nebaigta reguliuoti"></span></td>
+		
+		<td>1-1</td>
+		<td>KASKO</td><td>BRU641</td><td>Ergo Lietuva</td><td>800</td><td><a style="float: right;" class="aClaimRegulation" href="javascript:void(0);">Reguliavimas</a></td></tr>
+		<tr data-ctrl="{"ID":2,"VehicleID":2,"InsPolicyID":2,"InsuranceClaimAmount":800,"InsurerClaimID":"160-99","IsTotalLoss":0,"IsInjuredPersons":0,"Days":0,"PerDay":0}" style="background-color: rgb(204, 204, 204);"><td><span class="ui-icon ui-icon-circle-check" title="Ði þala baigta reguliuoti"></span></td><td>1-2</td><td>TP valdytojø civilinë atsakomybë</td><td>ZZ991</td><td>Ergo Lietuva</td><td>800</td><td><a style="float: right;" class="aClaimRegulation" href="javascript:void(0);">Reguliavimas</a></td></tr>
+		<tr data-ctrl="{"ID":115,"VehicleID":1,"InsPolicyID":1,"InsuranceClaimAmount":1000,"InsurerClaimID":"565656","IsTotalLoss":0,"IsInjuredPersons":0,"Days":0,"PerDay":0}" style="background-color: rgb(204, 204, 204);"
+		class="ClaimIsOpen">
+		<td><span class="ui-icon ui-icon-alert" title="Ði þala dar nebaigta reguliuoti"></span></td><td>1-3</td><td>Ekspeditoriaus civilinë atsakomybë</td><td>OVJ635</td><td>Lietuvos Draudimas</td><td>1000</td><td><a style="float: right;" class="aClaimRegulation" href="javascript:void(0);">Reguliavimas</a></td></tr>
+
+		<tr style="background-color: rgb(204, 204, 204);" id="trClaimCard">
+				<td colspan="7">
+					<div data-ctrl="{"id":"115","NewRec":"0","ClaimTypeID":""}" id="divClaimCard"><div class="HalfDivleft"><div><span class="Left-form-label">Transporto priemonë:</span><select id="lstVehicles" data-ctrl="{"UpdateField":"VehicleID","Value":"1"}"><option selected="selected" value="1">OVJ635, , FH15, 2005</option><option value="2">ZZ991, , Actros, 2006</option><option value="3">KKK658, , TGL, 2007</option><option value="4">BRU641, , TGH, 2006</option><option value="5">KPZ756, , TGM, 1991</option><option value="-1">Redaguoti sàraðà..</option></select></div>
+					<div><span class="Left-form-label">Polisas:</span><select id="lstInsPolicies" data-ctrl="{"UpdateField":"InsPolicyID","Value":"1"}"><option selected="selected" value="1">152, 1</option><option value="2">160, 2</option><option value="0">Neapdrausta</option><option value="-1">Redaguoti sàraðà..</option></select></div>
+					<div><span class="Left-form-label">Þalos nr. draudiko sistemoje:</span><input type="text" value="565656" data-ctrl="{"UpdateField":"InsurerClaimID","Value":"565656","Validity":"require()"}" class="UpdateField"></div>
+					</div><div class="HalfDivright"><div><span class="Left-form-label">Planuojama þalos suma,Lt:</span><input type="text" data-ctrl="{"UpdateField":"LossAmount","Value":"1000","Validity":"require().match(number).greaterThanOrEqualTo(0)"}" value="1000" class="LossAmount UpdateField">
+					</div><div><span class="Left-form-label">Planuojama draudimo iðmoka,Lt:</span><input type="text" data-ctrl="{"UpdateField":"InsuranceClaimAmount","Value":"1000","Validity":"require().match(number).greaterThanOrEqualTo(0)"}" value="1000" class="InsuranceClaimAmount UpdateField">
+					</div></div><div class="frmbottom"><button title="iðtrinti þalà" id="btnDelete" tabindex="-1" class="floatleft ui-state-default ui-corner-all"><span class="ui-icon ui-icon-trash"></span></button><div class="floatright ui-buttonset"><button class="btnCancelClaim ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text">Atðaukti</span></button><button class="btnSaveClaim ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false"><span class="ui-button-text">Iðsaugoti</span></button>
+					</div></div>
+				</div> 
+				</td>
+		</tr>
+	
+	<tr id="trNewClaimCard" style="background-color: rgb(204, 204, 204);">
+			<td colspan="7">
+			<div data-ctrl="{"id":"0","NewRec":"1","ClaimTypeID":2}" id="divNewClaimCard">
+				<p style="cursor: pointer; margin: 4px; background-color: white;" tabindex="0">Pasirinkite þalos tipà:<span>TP valdytojø civilinë atsakomybë</span></p>
+				<div style="overflow: hidden; display: block; height: 0px;" class="megaselectlistoptions">
+				<div class="megaselectlistcolumn"><ul><li data-val="1" tabindex="-1'">KASKO</li><li data-val="2" tabindex="-1'">TP valdytojø civilinë atsakomybë</li><li data-val="3" tabindex="-1'">Veþëjo civilinë atsakomybë</li></ul></div>
+				<div class="megaselectlistcolumn"><ul><li data-val="4" tabindex="-1'">Ekspeditoriaus civilinë atsakomybë</li><li data-val="5" tabindex="-1'">Darbdavio civilinë atsakomybë</li><li data-val="6" tabindex="-1'">Prastova</li></ul></div>
+				<div style="clear: both;">&nbsp;</div>
+				</div>
+				<div class="HalfDivleft"><div><span class="Left-form-label">Transporto priemonë:</span><select id="lstVehicles" data-ctrl="{"UpdateField":"VehicleID","Value":"undefined"}"><option value="1">OVJ635, , FH15, 2005</option><option value="2">ZZ991, , Actros, 2006</option><option value="3">KKK658, , TGL, 2007</option><option value="4">BRU641, , TGH, 2006</option><option value="5">KPZ756, , TGM, 1991</option><option value="-1">Redaguoti sàraðà..</option></select>
+				</div>
+				<div><span class="Left-form-label">Polisas:</span><select id="lstInsPolicies" data-ctrl="{"UpdateField":"InsPolicyID","Value":"undefined"}"><option value="1">152, 1</option><option value="2">160, 2</option><option value="0">Neapdrausta</option><option value="-1">Redaguoti sàraðà..</option></select></div>
+				<div><span class="Left-form-label">Þalos nr. draudiko sistemoje:</span><input type="text" value="" data-ctrl="{"UpdateField":"InsurerClaimID","Value":"undefined","Validity":"require()"}" class="UpdateField">
+				</div></div>
+				<div class="HalfDivright"><div><span class="Left-form-label">Planuojama þalos suma,Lt:</span><input type="text" data-ctrl="{"UpdateField":"LossAmount","Value":"undefined","Validity":"require().match(number).greaterThanOrEqualTo(0)"}" value="" class="LossAmount UpdateField">
+				</div><div><span class="Left-form-label">Planuojama draudimo iðmoka,Lt:</span><input type="text" data-ctrl="{"UpdateField":"InsuranceClaimAmount","Value":"undefined","Validity":"require().match(number).greaterThanOrEqualTo(0)"}" value="" class="InsuranceClaimAmount UpdateField">
+				</div></div>
+				<div class="frmbottom"><button title="iðtrinti þalà" id="btnDelete" tabindex="-1" class="floatleft ui-state-default ui-corner-all"><span class="ui-icon ui-icon-trash"></span></button><div class="floatright ui-buttonset"><button class="btnCancelClaim NewClaim ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text">Atðaukti</span></button><button class="btnSaveClaim NewClaim ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false"><span class="ui-button-text">Iðsaugoti</span></button>
+				</div></div>
+			</div>
+			</td>
+	</tr>
+	
+	</tbody></table>
+</td></tr>
+
+
+<tr class="even"><td>7</td><td>2011.02.02</td><td>Baltarusija, M10</td><td>Avarija</td><td>0</td><td>0</td><td>0</td><td>Nukrito</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/7"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+<tr class="odd"><td>4</td><td>2011.01.26</td><td>Lt, Miklusënai</td><td>Vagystë</td><td>0</td><td>0</td><td>0</td><td>Apiplëðë</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/4"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+<tr class="even"><td>5</td><td>2011.01.26</td><td>Lt, Miklusënai</td><td>Vagystë</td><td>0</td><td>0</td><td>0</td><td>Apiplëðë2</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/5"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+<tr class="odd"><td>6</td><td>2011.01.25</td><td>Lenkija, </td><td>Avarija</td><td>0</td><td>0</td><td>0</td><td>Apsivertë</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/6"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+<tr class="even"><td>3</td><td>2010.12.16</td><td>Vokietija, Munchen</td><td>Vagystë</td><td>2</td><td>1</td><td>16000.55</td><td>Krovinio vagystë (batai)</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/3"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+<tr class="odd"><td>2</td><td>2010.12.15</td><td>Lietuva, Prienai</td><td>Gaisras</td><td>2</td><td>1</td><td>1708.55</td><td>Uþsidegë nuo gretimos fûros</td><td style="width: 80px;"><a title="Atidaryti ðá ávyká" class="dialog_OpenAccidentWindow ui-state-default ui-corner-all" href="/Cards/Accident/2"><span class="ui-icon ui-icon-pencil"></span></a></td></tr>
+</tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class='HalfDivleft'><div class='ExtendIt' data-ctrl='{"Value":0,"Field":"VehicleID","classes":"UpdateField","id":"lstVehicles","labelType":"Top"}'></div>
+<div class='ExtendIt' data-ctrl='{"Value":0,"Field":"InsPolicyID","classes":"UpdateField","id":"lstInsPolicies","labelType":"Top"}'></div>
+<div class='ExtendIt' a='1' data-ctrl='{"Value":"''","Field":"InsurerClaimID","classes":"UpdateField","labelType":"Top"}'></div>
+</div>
+<div class='HalfDivright'><div class='ExtendIt' a='2' data-ctrl='{"Value":'',"Field":"LossAmount","classes":"LossAmount UpdateField","labelType":"Top"}'></div>
+<div class='ExtendIt' a='3' data-ctrl='{"Value":'',"Field":"InsuranceClaimAmount","classes":"InsuranceClaimAmount UpdateField","labelType":"Top"}'>
+</div>
+</div><div class='frmbottom'><button id='btnDelete' title='iðtrinti þalà' class='floatleft ui-button ui-corner-all ui-icon-only' " role="button"><span class="ui-button-icon-primary ui-icon ui-icon-trash"></span></button><div class='floatright'><button id='btnSaveClaim' title='Iðsaugoti pakeitimus' class='BtnBackGreen NewClaim ui-button ui-corner-all ui-button-text-icon-primary' " role="button"><span class="ui-button-text">IÐSAUGOTI</span></button><a id='btnCancelClaim' href='javascript:void(0);return false;'>Atðaukti</a></div>
+</div></div>
+
+<div class='HalfDivleft'><div class='ExtendIt' data-ctrl='{"Value":5,"Field":"inputDays","classes":"UpdateField","id":"inputDays","labelType":"Top"}'></div>
+<div class='ExtendIt' data-ctrl='{"Value":500,"Field":"inputPerDay","classes":"UpdateField","id":"inputPerDay","labelType":"Top"}'></div>
+<div class='ExtendIt' data-ctrl='{"Value":0,"Field":"inputSum","classes":"UpdateField","id":"inputSum","attr":"DISABLED","labelType":"Top"}'></div>
+</div><div class='HalfDivright'><div class='ExtendIt' data-ctrl='{"Value":0,"Field":"VehicleID","classes":"UpdateField","id":"lstVehicles","labelType":"Top"}'></div>
+</div><div class='frmbottom'><button id='btnDelete' title='iðtrinti þalà' class='floatleft ui-button ui-corner-all ui-icon-only' " role="button"><span class="ui-button-icon-primary ui-icon ui-icon-trash"></span></button><div class='floatright'><button id='btnSaveClaim' title='Iðsaugoti pakeitimus' class='BtnBackGreen NewClaim ui-button ui-corner-all ui-button-text-icon-primary' " role="button"><span class="ui-button-text">IÐSAUGOTI</span></button><a id='btnCancelClaim' href='javascript:void(0);return false;'>Atðaukti</a></div></div></div>

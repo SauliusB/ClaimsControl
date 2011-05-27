@@ -1,0 +1,34 @@
+﻿@model CC.Models.clsDriver
+<div id="ListRecordEditForm" class="inputform"
+data-ctrl='{"NewRec":1,"Source":"proc_Drivers","tblUpdate":"tblDrivers"@((Model.NewRec == 1) ? "" : ",\"id\":" + Model.Driver.ID)}'>
+   @{if (Model.NewRec == 1) {
+      <div class='HalfDivleft'>
+         <div class='ExtendIt' data-ctrl='{"Field":"FirstName","classes":"UpdateField","id":"FirstName","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"DateExpierence","classes":"UpdateField","id":"DateExpierence","labelType":"Left", "Type":"DateLess", "Defaults":"Today", "Plugin":["datepicker"] }'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"Phone","classes":"UpdateField","id":"Phone","labelType":"Left"}'></div>
+      </div>
+      <div class='HalfDivright'>
+         <div class='ExtendIt' data-ctrl='{"Field":"LastName","classes":"UpdateField","id":"LastName","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"DrivingCategory","classes":"UpdateField","id":"DrivingCategory","labelType":"Left"}'></div>
+      </div>
+     }
+     else {
+      <div class='HalfDivleft'>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Driver.FirstName", "Field":"FirstName","classes":"UpdateField","id":"FirstName","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Driver.DateExpierence", "Field":"DateExpierence","classes":"UpdateField","id":"DateExpierence","labelType":"Left", "Type":"DateLess", "Defaults":"Today", "Plugin":["datepicker"] }'></div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Driver.Phone", "Field":"Phone","classes":"UpdateField","id":"Phone","labelType":"Left"}'></div>
+      </div>
+      <div class='HalfDivright'>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Driver.LastName", "Field":"LastName","classes":"UpdateField","id":"LastName","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Driver.DrivingCategory", "Field":"DrivingCategory","classes":"UpdateField","id":"DrivingCategory","labelType":"Left"}'></div>
+         <div id="divStatusPanel" class="ui-widget-content ui-corner-all" data-EndDate="@((Model.Driver.DateEnd.HasValue) ? Model.Driver.DateEnd.Value.ToString("yyyy.MM.dd") : "")" data-End='{"UpdateField":"DateEnd","Tip":"Nedirba nuo","NotUsed":"Nedirba nuo","ToNotUsed":"Perkelti prie nedirbančių","ToUsed":"Grąžinti prie dirbančių"}'>
+         </div>
+         @*         <div class="ui-widget-content ui-corner-all @((Model.Driver.DateEnd.HasValue) ? "WasBefore" : "ui-state-default IsNow")">
+            @((Model.Driver.DateEnd.HasValue) ? "Nedirba nuo " + Model.Driver.DateEnd.Value.ToString("yyyy MM dd") : "")
+            <a id="ListRecordChangeStatus" href="#">@((Model.Driver.DateEnd.HasValue) ? "Keisti" : "Perkelti prie nedirbančių")</a>
+         </div>*@ </div>
+     }}
+   <div class='clearfix'></div>
+   <center style="margin: 2em 0;"><a id="btnListRecordSave" href="#">Išsaugoti</a><a style="margin-left: 2%;" id="btnListRecordCancel" href="#">Atšaukti</a></center>
+   <div class="DocsRow"><strong>Dokumentai:</strong><img src="/Content/images/grapke.png" alt="" style="margin: auto 0.5em auto 3em" /><a id="#AttachListDocs" href="#">Prisegti naują dokumentą</a></div>
+</div>

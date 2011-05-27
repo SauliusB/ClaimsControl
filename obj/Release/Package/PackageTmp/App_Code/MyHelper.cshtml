@@ -1,0 +1,21 @@
+﻿@*@using MVC3_RazorSyntax.Models;
+
+@helper checkbox1(string FName,boolean Value,string Title,string Tip){
+    <input type="checkbox" id="@FName" title="@Title"/>
+} 
+
+
+@((Tip!=null)?"data="{Tip:@Tip}"":"") @((Value)?"checked="true"":"")
+
+@helper ProductListing(List<Products> products){
+  <ul>@foreach(var p in products){<li>@p.ProductName ($@p.UnitPrice)</li>}</ul>
+}
+@helper ProductListing(string products){
+    <ul>
+        @foreach(var p in products){
+            <li>hhghg</li>
+    } </ul>
+}
+@helper checkbox(string FName, MyParams myParams) {
+    <p>@FName</p>
+}*@

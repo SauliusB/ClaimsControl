@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4B327C5-01DE-4492-9044-7E62C076EE16}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CC</RootNamespace>
+    <AssemblyName>ClaimsControl</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <JSLintSkip>\Scripts\Plugins scripts\TimePicker.js|\Scripts\Plugins scripts\jsonUpdate.js|\Scripts\Plugins scripts\MegaSelectList.js|\Scripts\Plugins scripts\JScript1.js|\Scripts\JSMain\jquery.validate-vsdoc.js|\Scripts\JSMain\jquery.validate.js|\Scripts\JSMain\jquery.validate.min.js|\Scripts\JSMain\jquery.validate.unobtrusive.js|\Scripts\JSMain\jquery.validate.unobtrusive.min.js|\Scripts\JSMain\MicrosoftAjax.js|\Scripts\JSPlugins\jquery.validity.min.js|\Scripts\JSPlugins\jquery.validity.js|\Scripts\JSPlugins\jquery.rich-array.js|\Scripts\JSPlugins\jquery.rich-array-min.js|\Scripts\JSPlugins\jquery.jEditable.min.js|\Scripts\JSPlugins\jquery.jEditable.js|\Scripts\JSPlugins\jquery.dataTables.min.js|\Scripts\JSPlugins\jquery.dataTables.min.1.7.4.js|\Scripts\JSPlugins\jquery.dataTables.js|\Scripts\JSPlugins\jquery-ui-1.8.6.custom.min.js|\Scripts\JSPlugins\TimePicker.js|\Scripts\JSPlugins\jquery-ui-1.8.10.custom.min.js</JSLintSkip>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Debug_Symbol</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="CCConnectionString-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=SAULIUSB\SQLEXPRESS%3bInitial Catalog=ClaimsControl%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" />
+            <Source Path="obj\Debug\AutoScripts\CCConnectionString-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="ClaimsControlConnectionString-Deployment" Order="2">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=SAULIUSB\SQLEXPRESS%3bInitial Catalog=ClaimsControl%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" />
+            <Source Path="obj\Debug\AutoScripts\ClaimsControlConnectionString-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="ClaimsControlConnectionString-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=SAULIUSB\SQLEXPRESS%3bInitial Catalog=ClaimsControl%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" />
+            <Source Path="obj\Release\AutoScripts\ClaimsControlConnectionString-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Content\images\Program.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.1.1\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Scripts\ScriptsAreaRegistration.cs" />
+    <Compile Include="Classes\General.cs" />
+    <Compile Include="Classes\Generics.cs" />
+    <Compile Include="Classes\htmlHelpers.cs" />
+    <Compile Include="Classes\UserData.cs" />
+    <Compile Include="Classes\SQLHelper.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccidentController.cs" />
+    <Compile Include="Controllers\ListsController.cs" />
+    <Compile Include="Controllers\UpdateController.cs" />
+    <Compile Include="Controllers\Main.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\clsObjects.cs" />
+    <Compile Include="Models\CCMemProvider.cs" />
+    <Compile Include="Models\Repositories_Lists.cs" />
+    <Compile Include="Models\Repositories_Update.cs" />
+    <Compile Include="Models\db.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repositories_Accidents.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\dataTables.css" />
+    <Content Include="Content\filetypes\doc.png" />
+    <Content Include="Content\filetypes\img.png" />
+    <Content Include="Content\filetypes\pdf.png" />
+    <Content Include="Content\images\ajax-loader-bar.gif" />
+    <Content Include="Content\images\ajax-loader-circle-blue.gif" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\arrow.gif" />
+    <Content Include="Content\images\DeleteCross.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\grapke.png" />
+    <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\mono_delete.png" />
+    <Content Include="Content\images\mono_edit.png" />
+    <Content Include="Content\images\pencil.png" />
+    <Content Include="Content\images\Program.ico" />
+    <Content Include="Content\images\WaitBar.gif" />
+    <Content Include="Content\images\Zvaigzde.png" />
+    <Content Include="Content\images_dataTables\back_disabled.jpg" />
+    <Content Include="Content\images_dataTables\back_enabled.jpg" />
+    <Content Include="Content\images_dataTables\favicon.ico" />
+    <Content Include="Content\images_dataTables\forward_disabled.jpg" />
+    <Content Include="Content\images_dataTables\forward_enabled.jpg" />
+    <Content Include="Content\images_dataTables\sort_asc.png" />
+    <Content Include="Content\images_dataTables\sort_asc_disabled.png" />
+    <Content Include="Content\images_dataTables\sort_both.png" />
+    <Content Include="Content\images_dataTables\sort_desc.png" />
+    <Content Include="Content\images_dataTables\sort_desc_disabled.png" />
+    <Content Include="Content\images_ui\5dca34-green.txt" />
+    <Content Include="Content\images_ui\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images_ui\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\images_ui\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\images_ui\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images_ui\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\images_ui\ui-bg_glass_75_eaeaea_1x400.png" />
+    <Content Include="Content\images_ui\ui-bg_highlight-soft_75_798ea3_1x100.png" />
+    <Content Include="Content\images_ui\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Content\images_ui\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images_ui\ui-icons_344e93_256x240.png" />
+    <Content Include="Content\images_ui\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images_ui\ui-icons_798ea3_256x240.png" />
+    <Content Include="Content\images_ui\ui-icons_888888_256x240.png" />
+    <Content Include="Content\images_ui\ui-icons_9dadbe_256x240.png" />
+    <Content Include="Content\images_ui\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\images_ui\ui-icons_green_256x240.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\images_ui_seni\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\images_ui_seni\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\images_ui_seni\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\images_ui_seni\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\images_ui_seni\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\images_ui_seni\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\images_ui_seni\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\images_ui_seni\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\jquery-ui-1.8.10.custom.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\JSForm\Start.js" />
+    <Content Include="Scripts\JSForm\Form_Accident_Card.js" />
+    <Content Include="Scripts\JSForm\Tab_AccidentsList.js" />
+    <Content Include="Scripts\JSForm\Tab_Lists.js" />
+    <Content Include="Scripts\JSGeneral\clsDialogUi.js" />
+    <Content Include="Scripts\JSGeneral\clsEditableList.js" />
+    <Content Include="Scripts\JSGeneral\clsEditableList_ovr_DriverList.js" />
+    <Content Include="Scripts\JSGeneral\clsGrid.js" />
+    <Content Include="Scripts\JSGeneral\clsLogin.js" />
+    <Content Include="Scripts\JSGeneral\clsEditableList_ovr_DriverList1.js" />
+    <Content Include="Scripts\JSGeneral\clsEditableList1.js" />
+    <Content Include="Scripts\JSGeneral\clsGrid1.js" />
+    <Content Include="Scripts\JSGeneral\MyPlugins.js" />
+    <Content Include="Scripts\JSGeneral\fauxconsole.js" />
+    <Content Include="Scripts\JSGeneral\General.js" />
+    <Content Include="Scripts\JSGeneral\Library.js" />
+    <Content Include="Scripts\JSGeneral\MyPlugins2.js" />
+    <Content Include="Scripts\JSGeneral\MyPlugins_ComboBox.js" />
+    <Content Include="Scripts\JSGeneral\objData.js" />
+    <Content Include="Scripts\JSGeneral\objFunc.js" />
+    <Content Include="Scripts\JSGeneral\Server.js" />
+    <Content Include="Scripts\JSGeneral\Validation.js" />
+    <Content Include="Scripts\JSMain\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\JSMain\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\JSMain\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\JSMain\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\JSMain\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\JSMain\jquery.validate.js" />
+    <Content Include="Scripts\JSMain\jquery.validate.min.js" />
+    <Content Include="Scripts\JSMain\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\JSMain\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JSMain\json2.js" />
+    <Content Include="Scripts\JSMain\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\JSMain\MicrosoftAjax.js" />
+    <Content Include="Scripts\JSMain\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\JSMain\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\JSMain\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\JSMain\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\JSPlugins\jquery-ui-1.8.10.custom.min.js" />
+    <Content Include="Scripts\JSPlugins\jquery.dataTables.js" />
+    <Content Include="Scripts\JSPlugins\jquery.dataTables.min.1.7.4.js" />
+    <Content Include="Scripts\JSPlugins\jquery.dataTables.min.js" />
+    <Content Include="Scripts\JSPlugins\jquery.jEditable.js" />
+    <Content Include="Scripts\JSPlugins\jquery.jEditable.min.js" />
+    <Content Include="Scripts\JSPlugins\jquery.rich-array-min.js" />
+    <Content Include="Scripts\JSPlugins\jquery.rich-array.js" />
+    <Content Include="Scripts\JSPlugins\jquery.validity.js" />
+    <Content Include="Scripts\JSPlugins\jquery.validity.min.js" />
+    <Content Include="Scripts\Plugins scripts\dateFormat.js" />
+    <Content Include="Scripts\Plugins scripts\jquery.metadata.js" />
+    <Content Include="Scripts\Plugins scripts\JScript1.js" />
+    <Content Include="Scripts\Plugins scripts\jsonUpdate.js" />
+    <Content Include="Scripts\Plugins scripts\MegaSelectList.js" />
+    <Content Include="Scripts\Plugins scripts\TimePicker.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Main\Messages.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Scripts\Controllers\" />
+    <Folder Include="Areas\Scripts\Models\" />
+    <Folder Include="Areas\Scripts\Views\Shared\" />
+    <Folder Include="Scripts\Final\" />
+    <Folder Include="Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\MyHelper.cshtml" />
+    <Content Include="Areas\Scripts\Views\Web.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Content\images_dataTables\Sorting icons.psd" />
+    <Content Include="Views\Account\LogOn_Layout.cshtml" />
+    <None Include="Models\db.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>db.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\db.dbml.layout">
+      <DependentUpon>db.dbml</DependentUpon>
+    </None>
+    <Content Include="packages.config" />
+    <None Include="Uzrasai.rtf" />
+    <Content Include="Views\Accident\Card.cshtml" />
+    <Content Include="Views\Main\StartPublish.cshtml" />
+    <Content Include="Views\Lists\tblDrivers.cshtml" />
+    <Content Include="Views\Lists\tblVehicles.cshtml" />
+    <Content Include="Views\Lists\tblInsPolicies.cshtml" />
+    <None Include="Views\Shared\LayOut_Main_Debug.cshtml" />
+    <None Include="Views\Shared\LayOut_Main.cshtmltrinti" />
+    <None Include="Views\Shared\LayOut_SubMain.cshtmltrinti" />
+    <Content Include="Views\Cards_trinti\Accident.cshtml" />
+    <None Include="Views\Shared\LayOut_SubMain_Debug.cshtmltrinti" />
+    <Content Include="Views\Main\Start.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>6969</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6969/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

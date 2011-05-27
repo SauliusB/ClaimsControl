@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html1>
+<html>
+<head>
+   <title>Žalų valdymo sistema</title>
+   <link href="@Url.Content("~/Content/System-11-04-11.min.css")" rel="stylesheet" type="text/css"/>
+   <link rel="shortcut icon" href="../../Content/images/favicon.ico" type="image/x-icon" />
+   <style type="text/css">
+
+   </style>
+</head>
+<body>
+   <div id="divMainPage">
+      <div id="divlogindisplay">
+         @Html.Partial("_LogOnPartial")
+      </div>
+      <div id="divMainTabMenu"><ul id='ulMainMenu'>
+         <li><a href="#tabAccidents" data-ctrl='{"CallFunc":"CallServer("", oGLOBAL.Start.fnSetNewData, {"Ctrl":ui.panel.id}, "/Main/"+ui.panel.id, "json");"}'>
+            <span>ĮVYKIAI</span></a></li>
+         <li><a href="#tabClaims" data-ctrl='{"CallFunc":"Tab_Claims();"}'><span>ŽALŲ REGULIAVIMAS</span></a></li>
+         <li><a href="#tabMap" data-ctrl='{"CallFunc":"Tab_Map();"}'><span>ŽEMĖLAPIS</span></a></li>
+         <li><a href="#tabReports" data-ctrl='{"CallFunc":"Tab_Reports();"}'><span>ATASKAITOS</span></a></li>
+         <li><a href="#tabLists" data-ctrl='{"CallFunc":"Tab_Lists();"}'><span>SĄRAŠAI</span></a></li>
+         <li style="float: right"><a href="#tabAdmin" data-ctrl='{"CallFunc":"Tab_Admin();"}'><span>ADMINISTRAVIMAS</span></a></li>
+      </ul>
+         <div id="tabAccidents">@*style="height: auto; overflow: visible;"*@
+            <div class="pane ui-layout-center" id="tabAccidents-center">Center <p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p>
+            </div>
+            <div id="tabAccidents-east" class="pane ui-layout-east">East<p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p>
+            </div>
+         </div>
+         <div id="tabClaims"></div>
+         <div id="tabMap"></div>
+         <div id="tabReports"></div>
+         <div id="tabLists"></div>
+         <div id="tabAdmin"></div>
+      </div>
+   </div>
+</body>
+<script src="@Url.Content("~/Scripts/Final/Mod-11-04-11.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $.blockUI();
+      window.onresize=function() { window.setTimeout("oGLOBAL.Start.MakeSizes()", 100); }
+      oGLOBAL.Start.MakeSizes();
+      var $tabs=$("#divMainTabMenu").tabs({
+         select: function(e, ui) {
+            var thistab=ui.index;
+            $("#tab"+thistab).html(thistab);
+            if(/^(\s*)$/.test($("#"+ui.panel.id).html())) {  //Ar tuscias?
+               setTimeout($(ui.tab).data("ctrl").CallFunc, 0);
+            }
+         }
+      }).removeClass('ui-corner-all').find('ul,li').removeClass('ui-corner-all ui-corner-top'); //; ui-widget-content
+      CallServer("", oGLOBAL.Start.fnSetNewData, { "Ctrl": "tabAccidents" }, "/Main/tabAccidents", "json"); //Sudedam duomenis i pirma taba
+   });
+</script>
+</html>

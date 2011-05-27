@@ -1,0 +1,74 @@
+﻿@model CC.Models.clsInsPolicy
+<div id="ListRecordEditForm" class="inputform"
+data-ctrl='{"NewRec":1,"Source":"proc_Vehicles","tblUpdate":"tblVehicles"@((Model.NewRec == 1) ? "" : ",\"id\":" + Model.Vehicle.ID)}'>
+   <ul class="ulWhiteMenu">
+      <li><a href="#tabs-policy">Polisas ir draudėjas</a></li>
+      <li><a href="#tabs-warnings">Įspėjimai</a></li>
+      <li><a href="#tabs-docs">Pateikiami dokumentai</a></li>
+   </ul>
+   <div id="tabs-policy">
+      @{if (Model.NewRec == 1) { <fieldset><legend>Draudimo poliso duomenys</legend>
+         <div class='HalfDivleft'>
+            <div class='ExtendIt' data-ctrl='{"Field":"ClaimTypeID","classes":"UpdateField","id":"lstClaimTypeID","labelType":"Left"}'></div>
+            <div class='ExtendIt' data-ctrl='{"Field":"PolicyNumber","classes":"UpdateField","id":"PolicyNo","labelType":"Left"}'></div>
+         </div>
+         <div class='HalfDivright'>
+            <div class='ExtendIt' data-ctrl='{"Field":"InsurerID","classes":"UpdateField","id":"InsurerID","labelType":"Left"}'></div>
+            <div class='ExtendIt' data-ctrl='{"Field":"EndDate","classes":"UpdateField","id":"EndDate","labelType":"Left"}'></div>
+         </div>
+         <div class='clearfix'></div>
+         <center>
+            <div class='ExtendIt' data-ctrl='{"Field":"MailsAddresses","classes":"UpdateField","id":"MailsAddresses","labelType":"Top"}'></div>
+         </center>
+      </fieldset>
+         <fieldset><legend>Draudėjo duomenys</legend>
+            <div class='HalfDivleft'>
+               <div class='ExtendIt' data-ctrl='{"Field":"InsuredName","classes":"UpdateField","id":"InsuredName","labelType":"Left"}'></div>
+               <div class='ExtendIt' data-ctrl='{"Field":"InsuredAddress","classes":"UpdateField","id":"InsuredAddress","labelType":"Left"}'></div>
+            </div>
+            <div class='HalfDivright'>
+               <div class='ExtendIt' data-ctrl='{"Field":"InsuredCode","classes":"UpdateField","id":"InsuredCode","labelType":"Left"}'></div>
+               <div class='ExtendIt' data-ctrl='{"Field":"InsuredContactID","classes":"UpdateField","id":"InsuredContactID","labelType":"Left"}'></div>
+            </div>
+         </fieldset>
+        }
+        else { <fieldset><legend>Draudimo poliso duomenys</legend>
+           <div class='HalfDivleft'>
+              <div class='ExtendIt' data-ctrl='{"Value":@Model.InsPolicy.ClaimTypeID,"Field":"ClaimTypeID","classes":"UpdateField","id":"lstClaimTypeID","labelType":"Left"}'></div>
+              <div class='ExtendIt' data-ctrl='{"Value":"@Model.InsPolicy.PolicyNumber","Field":"PolicyNumber","classes":"UpdateField","id":"PolicyNo","labelType":"Left"}'></div>
+           </div>
+           <div class='HalfDivright'>
+              <div class='ExtendIt' data-ctrl='{"Value":@Model.InsPolicy.InsurerID,"Field":"InsurerID","classes":"UpdateField","id":"InsurerID","labelType":"Left"}'></div>
+              <div class='ExtendIt' data-ctrl='{"Value":"@Model.InsPolicy.EndDate","Field":"EndDate","classes":"UpdateField","id":"EndDate","labelType":"Left"}'></div>
+           </div>
+           <div class='clearfix'></div>
+           <center>
+              <div class='ExtendIt' data-ctrl='{"Value":"@Model.InsPolicy.MailsAddresses","Field":"MailsAddresses","classes":"UpdateField","id":"MailsAddresses","labelType":"Top"}'></div>
+           </center>
+        </fieldset>
+         <fieldset><legend>Draudėjo duomenys</legend>
+            <div class='HalfDivleft'>
+               <div class='ExtendIt' data-ctrl='{"Value":@Model.InsPolicy.InsuredName,"Field":"InsuredName","classes":"UpdateField","id":"InsuredName","labelType":"Left"}'></div>
+               <div class='ExtendIt' data-ctrl='{"Value":@Model.InsPolicy.InsuredAddress,"Field":"InsuredAddress","classes":"UpdateField","id":"InsuredAddress","labelType":"Left"}'></div>
+            </div>
+            <div class='HalfDivright'>
+               <div class='ExtendIt' data-ctrl='{"Value":@Model.InsPolicy.InsuredCode,"Field":"InsuredCode","classes":"UpdateField","id":"InsuredCode","labelType":"Left"}'></div>
+               <div class='ExtendIt' data-ctrl='{"Value":@Model.InsPolicy.InsuredContactID,"Field":"InsuredContactID","classes":"UpdateField","id":"InsuredContactID","labelType":"Left"}'></div>
+            </div>
+         </fieldset>
+        }}
+      <center style="margin: 2em 0;"><a id="btnListRecordSave" href="#">Išsaugoti</a><a style="margin-left: 2%;" id="btnListRecordCancel" href="#">Atšaukti</a></center>
+   </div>
+   <!------------------------------------------------------------------------------->
+   <!------------------------------------------------------------------------------->
+   <div id="tabs-warnings"></div>
+   <!------------------------------------------------------------------------------->
+   <!------------------------------------------------------------------------------->
+   <div id="tabs-docs">@*<strong>Dokumentai kuriuos reikia pateikti reguliuojant žalą</strong>
+      <div class='HalfDivleft'>
+         <fieldset><legend>Įvykio dokumentai</legend><a style="margin-top: 2%;" href="#">Pridėti</a></fieldset>
+         <div class='HalfDivright'>
+            <fieldset><legend>Transporto priemonės dokumentai</legend><a style="margin-top: 2%;" href="#">Pridėti</a></fieldset>
+            <fieldset><legend>Vairuotojo dokumentai</legend><a style="margin-top: 2%;" href="#">Pridėti</a></fieldset>
+         </div></div>*@ </div>
+</div>

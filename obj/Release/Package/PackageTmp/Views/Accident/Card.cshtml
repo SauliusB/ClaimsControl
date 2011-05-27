@@ -1,0 +1,95 @@
+﻿@model CC.Models.clsAccident
+@*Vaizdavimo markupa dedam cia, o info apie duomenu tipa ir pan JSON'e
+List info yra JSON'e, taciau jei bus cia tures aukstesni prioriteta
+Markup:{Ctrl:"Date"/"DateTime/Button",Value:"btnTitle",Default:"Today",Plugin:{["DatePicker"]}}
+*@
+@if (@Model.NewRec == 1) { <h2 style="margin: 15px; display: inline-block">Naujo įvykio registravimas</h2>}
+else {<h2 style="margin: 15px; display: inline-block">Įvykis Nr.:@Model.Accident.No</h2>}
+<a id="btnReturnToAccidents" href="javascript:void(0);return false;">(Atgal į įvykių sąrašą)</a>
+<ul id='ulWhiteMenu'>
+   <li><a href="#AccidentForm"><span>Įvykio kortelė</span></a></li>
+   <li><a href="#AccDocs"><span>Įvykio dokumentai</span></a></li>
+</ul>
+<div id="AccidentForm" style="-moz-border-radius: 0 0 0 0; border-width: 0.8px; border-color: #C0C0C0 #FFFFFF #C0C0C0 #FFFFFF; border-style: ridge;"
+   class="inputform" data-ctrl=
+   @{if (Model.NewRec == 1) {
+        <text>'{"NewRec":1,"Source":"tblAccidents"}'</text>
+     }
+     else {
+        <text>'{"NewRec":0,"Source":"tblAccidents","id":@Model.Accident.ID,"Lat":"@Model.Accident.Lat","Lng":"@Model.Accident.Lng"}'</text>
+@*      <text>'{"NewRec":0,"Source":"tblAccidents","id":@Model.Accident.ID,"Lat":@Model.Accident.Lat,"Lng":@Model.Accident.Lng,}'</text>
+*@
+     }}
+   >
+   <div class='HalfDivleft1 border'>
+      @{if (Model.NewRec == 1) {
+         <div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"AccidentTypeID","classes":"UpdateField","id":"lstAccidentTypes","labelType":"Top"}'>
+            </div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"DriverID","classes":"UpdateField","id":"lstDrivers","labelType":"Top"}'></div>
+         </div>
+         <div class='ExtendIt' data-ctrl='{"Field":"ShortNote","classes":"UpdateField","id":"ShortNote","labelType":"Top"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"Date","classes":"UpdateField","id":"Date","labelType":"Top","Markup":{"Ctrl":"DateTime","Defaults":"Today","Plugin":["datepicker"]}}'>
+         </div>
+         <div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"IsNotOurFault","classes":"UpdateField","id":"IsNotOurFault","labelType":"Top"}'>
+            </div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Field":"IsOtherParticipants","classes":"UpdateField","id":"IsOtherParticipants","labelType":"Top"}'>
+            </div>
+         </div>
+         <div class='ExtendIt' data-ctrl='{"Field":"LongNote","classes":"UpdateField","id":"LongNote","labelType":"Top"}'></div>
+        }
+        else {
+         <div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Value":@Model.Accident.AccidentTypeID, "Field":"AccidentTypeID","classes":"UpdateField","id":"lstAccidentTypes","labelType":"Top"}'>
+            </div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Value":@Model.Accident.DriverID, "Field":"DriverID","classes":"UpdateField","id":"lstDrivers","labelType":"Top"}'>
+            </div>
+         </div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Accident.ShortNote", "Field":"ShortNote","classes":"UpdateField","id":"ShortNote","labelType":"Top"}'>
+         </div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Accident.Date", "Field":"Date","classes":"UpdateField","id":"Date","labelType":"Top","Markup":{"Ctrl":"DateTime","Defaults":"Today","Plugin":["datepicker"]}}'>
+         </div>
+         <div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Value":"@Model.Accident.IsNotOurFault", "Field":"IsNotOurFault","classes":"UpdateField","id":"IsNotOurFault","labelType":"Top"}'>
+            </div>
+            <div class='ExtendIt' style="width: 48%;" data-ctrl='{"Value":"@Model.Accident.IsOtherParticipants", "Field":"IsOtherParticipants","classes":"UpdateField","id":"IsOtherParticipants","labelType":"Top"}'>
+            </div>
+         </div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Accident.LongNote", "Field":"LongNote","classes":"UpdateField","id":"LongNote","labelType":"Top"}'>
+         </div>
+
+        }
+      }
+      <div><a id="btnSave" href="javascript:void(0);return false;">Išsaugoti</a><a style="margin-left: 2%;" id="btnCancel" href="javascript:void(0);return false;">Atšaukti</a></div>@*Mygtukai*@
+   </div>
+   @*---------------------------------------------------------------*@
+   <div class='HalfDivright1'>
+      <div id='divMapHead'>@*---------------------------------------------------------------*@
+         <div class='box border'>
+            <div class='dialog-form-label'>Įvykio vieta:</div>
+            @*<span style='font-size: medium; font-weight: bold; float: left;' id='txtPlace'>Nurodykite spragtelėjimu žemėlapyje..</span><a style='font-size: small;
+               float: right; margin-right: 20px;' href="#">Keisti</a>*@
+            @{if (Model.NewRec == 1) {
+               <span style='font-size: medium; font-weight: bold; float: left;' id='txtPlace'>Nurodykite spragtelėjimu žemėlapyje..</span>
+              }
+              else {
+               <span style='font-size: medium; font-weight: bold; float: left;' id='txtPlace'>@Model.Accident.LocationAddress, @Model.Accident.LocationDistrict,
+                  @Model.Accident.LocationCountry</span>
+               <a style='font-size: small; float: right; margin-right: 20px;' href="#">Keisti</a>
+              }
+            }
+            <div style="clear: both;"></div>
+         </div>
+         @*---------------------------------------------------------------*@
+         <div style="background-color: #8598ad; margin-top: 3%; padding: 3%;">
+            <div style="color: #FFFFFF; font-size: smaller;">Įveskite miestą arba spustelkite ant jo žemėlapyje:</div>
+            <input type='text' style="width: 75%;" id='inputChooseTown' data-ctrl='{"Tip":"Įveskite miestą parodyti žemėlapyje.."}' class='text ui-widget-content ui-corner-all defaultText defaultTextActive' />
+            <a style="margin-right: 2%;" id="btnMapTown" href="#">Rodyti</a>
+            @* <div style="clear: both;"></div>*@ </div>
+      </div>
+      <div id='divMap'>map</div>
+   </div>
+   <div class='clearfix'></div>
+</div>
+<div id="AccDocs"></div>

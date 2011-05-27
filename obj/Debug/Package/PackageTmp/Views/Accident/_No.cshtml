@@ -1,0 +1,45 @@
+﻿@*@model CC.Models.clsAccident
+*@ <ul  id='ulWhiteMenu'>
+   <li><a href="#Accident"><span>Įvykio kortelė</span></a></li>
+   <li><a href="#AccDocs"><span>Įvykio dokumentai</span></a></li>
+</ul>
+<div id="Accident">
+   <div class='HalfDivleft'>
+      <div>
+         <div class='ExtendIt' data-ctrl='{"Field":"AccidentTypeID","classes":"UpdateField c","id":"lstAccidentTypes","labelType":"Top"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"DriverID","classes":"UpdateField c","id":"lstDrivers","labelType":"Top"}'></div>
+      </div>
+      <div class='ExtendIt' data-ctrl='{"Field":"ShorNote","classes":"UpdateField","id":"ShortNote","labelType":"Top"}'></div>
+      <div class='ExtendIt' data-ctrl='{"Field":"Date","classes":"UpdateField Date","id":"Date","labelType":"Top"}'></div>
+      <div>
+         <div class='ExtendIt' data-ctrl='{"Field":"IsNotOurFault","classes":"UpdateField c","id":"IsNotOurFault","labelType":"Top"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"IsOtherParticipants","classes":"UpdateField c","id":"IsOtherParticipants","labelType":"Top"}'></div>
+      </div>
+      <div class='ExtendIt' data-ctrl='{"Field":"LongNote","classes":"UpdateField","id":"LongNote","labelType":"Top"}'></div>
+      <div></div>@*Mygtukai*@ </div>
+   @*---------------------------------------------------------------*@
+   <div class='HalfDivright'>
+      <div class='dialog-form-label'></div>
+      <div class='dialog-form-label' id='divPlace'>Šiuo metu nurodyta įvykio vieta</div>
+      @{
+         if (@Model.NewRec == 1) {
+         <input type='text' value="Nurodykite spragtelėjimu žemėlapyje.." class='text ui-widget ui-widget-content ui-corner-all defaultTextActive' title='Įvykio vieta'
+            id='txtPlace' disabled='disabled' />
+         }
+         else {
+         <input type='text' value="@Model.Accident.LocationAddress,@Model.Accident.LocationDistrict,@Model.Accident.LocationCountry" class='text ui-widget ui-widget-content ui-corner-all defaultTextActive' title='Įvykio vieta'
+                     id='txtPlace' disabled='disabled' />
+         <button type="button" id='btnEditMap' data-caption='Change' tabindex='-1' title='Keisti įvykio vietą' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+            role="button" aria-disabled="false"><span class="ui-button-text">Keisti</span></button>
+         }
+      }
+   </div>
+   <div class="c" style="width: 100%;">
+      <div style="float: right"><span><input type='text' style="width: 400px;" id='inputChooseTown' data-ctrl='{"Tip":"Įveskite miestą parodyti žemėlapyje.."}'
+         class='text ui-widget-content ui-corner-all defaultText defaultTextActive' />
+         <button id='btnMapTown' onclick='GetMapFromTown();'>Rodyti žemėlapyje</button>
+      </span>
+      </div>
+   </div>
+   <div id='divMap'></div>
+   <div id="AccDocs"></div>

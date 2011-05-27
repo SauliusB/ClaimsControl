@@ -1,0 +1,89 @@
+﻿@model CC.Models.clsAccident
+@{
+   ViewBag.Title = "Įvykio kortelė";
+   if (System.Web.HttpContext.Current.IsDebuggingEnabled) { Layout = @Url.Content("~/Views/Shared/LayOut_SubMain_Debug.cshtml"); }
+   else 
+   { Layout = @Url.Content("~/Views/Shared/LayOut_SubMain.cshtml"); }
+}
+<div id="content">
+   @*<ul>foreach (var a in Model)
+            {<li>@a.ShortNote</li>} </ul>*@ <ul>@*<li><a href="#Messages"><span>Pranešimai</span></a></li>*@
+               <li><a href="#Accident"><span>Įvykio kortelė</span></a></li>
+               <li><a href="#AccDocs"><span>Įvykio dokumentai</span></a></li>
+            </ul>
+   <div id="Accident">
+      <fieldset class="ui-corner-all"><legend>Įvykio detalės</legend>
+         <div id="Form-Accident-Card" class="flow-left {layout:{type:'low', alignment:'left'}}" data-ctrl='{"NewRec":@Model.NewRec, "id":@Model.Accident.ID, "Lat":@Model.Accident.Lat.ToString().Replace(',', '.'), "Lng":@Model.Accident.Lng.ToString().Replace(',', '.')}'>
+            <div class='c'>
+               @MyHTML.listbox("tblAccidentsTypes", @Model.Accident.AccidentTypeID, "Įvykio tipas", "", "tblAccidentsTypes", "AccidentTypeID")</div>
+            <div class='c'>
+               @MyHTML.text("ShortNote", @Model.Accident.ShortNote, "Kas atsitiko", "Vienu sakiniu..", "require().nonHtml().maxLength(50)", "text", "ShortNote")
+            </div>
+            <div class='c'>
+               @MyHTML.listbox("tblDrivers", @Model.Accident.DriverID, "Atsakingas vairuotojas", "Pradėkite spausdinti..", "tblDrivers", "DriverID")</div>
+            <div class='c'>
+               @MyHTML.date("Date", @Model.Accident.Date, "Įvykio data ir laikas (įvykio vietos laiku)", @Model.NewRec, "require()", "Date")
+               @*
+    
+
+            @MyHTML.text("Date", @Model.Accident.Date.ToShortDateString(), "Įvykio data ir laikas (vietos laiku1)", @Model.Accident.Date.ToShortDateString(), "require().match('date').lessThanOrEqualTo(new Date())", true)
+        
+        <input type="text" value="Date22" data="{Tip:'2011.01.24',Validity:'require().match("date").lessThanOrEqualTo(new Date())'}" class="text ui-widget-content ui-corner-all  defaultText UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date22"/>
+        <input type="text" value="Date66" data="{Tip:'2011.01.24',Validity:'require().match(\"date\").lessThanOrEqualTo(new Date())'}" class="text ui-widget-content ui-corner-all  defaultText UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date66"/>
+        <input type="text" value="Date22" data="{Tip:'2011.01.24',Validity:'require().match('date').lessThanOrEqualTo(new Date())'}" class="text ui-widget-content ui-corner-all  defaultText UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date22"/>
+
+<input type="text" value="Date66" data="{Tip:\'2011.01.24\',Validity:'require().match(\'date\').lessThanOrEqualTo(new Date())'}" class="text ui-widget-content ui-corner-all  defaultText UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date66"/>
+        <input type="text" value="Date66" data="{Tip:'2011.01.24',Validity:'require().match(&apos date&apos).lessThanOrEqualTo(new Date())'}" class="text ui-widget-content ui-corner-all  defaultText UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date66"/>
+        <input type="text" value="Date66" data='{Tip:"2011.01.24",Validity:"require().match(&apos date&apos).lessThanOrEqualTo(new Date())"}' class="text ui-widget-content ui-corner-all  defaultText UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date66"/>
+
+*@ @*        Praeina
+*@ @*         <input type="text" value="Date66" data="{Tip:'2011.01.24',Validity:'require().match(\'date\').lessThanOrEqualTo(new Date())'}" class="text ui-widget-content ui-corner-all  defaultText UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date66"/>
+         
+<input type="text" value="" data="{Tip:'2011.01.24',Validity:'require().match(date).lessThanOrEqualTo(new Date())'}" class="date ui-widget-content ui-corner-all defaultText defaultTextActive UpdateField" title="Įvykio data ir laikas (vietos laiku1)" id="Date66"/>
+<input id='Date66' type='text' value='' data="{Tip:'2011.01.24',Validity:'require().match(\'date\').lessThanOrEqualTo(new Date())'}" class='date ui-widget-content ui-corner-all defaultText defaultTextActive UpdateField' title='Įvykio data ir laikas (vietos laiku1)'/>
+
+*@
+            </div>
+            <div class='c'>
+               <div>
+                  @MyHTML.checkbox("IsNotOurFault", @Model.Accident.IsNotOurFault, "Kaltininkas trečia šalis", "IsNotOurFault")
+                  @*@Html.CheckBoxFor(m => m.Accident.IsNotOurFault, new { @class = "sdffsd" })*@
+               </div>
+               <div>@MyHTML.checkbox("IsOtherParticipants", @Model.Accident.IsOtherParticipants, "Daugiau nei vienas kaltininkas", "IsOtherParticipants")
+               </div>
+            </div>
+            <div class='c'>@MyHTML.textarea120("LongNote", @Model.Accident.LongNote, "Įvykio aplinkybės", "Papildoma informacija, pastabos, užrašai ir pan.", "nonHtml().maxLength(400)", "LongNote")
+            </div>
+            <div class='c'>
+               <div class='dialog-form-label' id='divPlace'>
+                  Įvykio vieta</div>
+               @{
+                  if (@Model.NewRec == 1) {
+                  <input type='text' value="Nurodykite spragtelėjimu žemėlapyje.." class='text ui-widget ui-widget-content ui-corner-all defaultTextActive' title='Įvykio vieta'
+                     id='txtPlace' disabled='disabled' />
+@*                  <button type="button" id='btnEditMap' tabindex='-1' title='Patvirtinti įvykio vietą' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                     role="button" aria-disabled="false"><span class="ui-button-text">Keisti</span></button>
+*@                  }
+                  else {
+                  <input type='text' value="@Model.Accident.LocationAddress,@Model.Accident.LocationDistrict,@Model.Accident.LocationCountry" class='text ui-widget ui-widget-content ui-corner-all defaultTextActive' title='Įvykio vieta'
+                     id='txtPlace' disabled='disabled' />
+                  <button type="button" id='btnEditMap' data-Caption='Change' tabindex='-1' title='Keisti įvykio vietą' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                     role="button" aria-disabled="false"><span class="ui-button-text">Keisti</span></button>
+                  }
+               }
+            </div>
+      </fieldset>
+      <div class="c" style="width: 100%;">
+         <div style="float: right">
+            <span><input type='text' style="width: 400px;" id='inputChooseTown' data-ctrl='{"Tip":"Įveskite miestą parodyti žemėlapyje.."}' class='text ui-widget-content ui-corner-all defaultText defaultTextActive' />
+               <button id='btnMapTown' onclick='GetMapFromTown();'>Rodyti žemėlapyje</button>
+            </span>
+         </div>
+      </div>
+      <div id='divMap'>
+      </div>
+   </div>
+</div>
+<div id="AccDocs">
+</div>
+</div> 

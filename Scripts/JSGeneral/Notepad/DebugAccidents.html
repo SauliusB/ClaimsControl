@@ -1,0 +1,51 @@
+<body>
+   <div id="divMainPage">
+      <div id="divlogindisplay">
+         @Html.Partial("_LogOnPartial")
+      </div>
+      <div id="divMainTabMenu">
+	  <ul id='ulMainMenu'>
+	     <li><a href="#tabAccidents" data-ctrl='{"CallFunc":"CallServer("", oGLOBAL.Start.SetNewData, ui.panel.id, "/Main/"+ui.panel.id, "json");"}'><span> ÁVYKIAI</span></a></li>
+         <li><a href="#tabClaims" data-ctrl='{"CallFunc":"Tab_Claims();"}'><span>ÞALØ REGULIAVIMAS</span></a></li>
+         <li><a href="#tabMap" data-ctrl='{"CallFunc":"Tab_Map();"}'><span>ÞEMËLAPIS</span></a></li>
+         <li><a href="#tabReports" data-ctrl='{"CallFunc":"Tab_Reports();"}'><span>ATASKAITOS</span></a></li>
+         <li><a href="#tabLists" data-ctrl='{"CallFunc":"Tab_Lists();"}'><span>SÀRAÐAI</span></a></li>
+         <li style="float: right"><a href="#tabAdmin" data-ctrl='{"CallFunc":"Tab_Admin();"}'><span>ADMINISTRAVIMAS</span></a></li>
+      </ul>
+	  
+         <div id="tabAccidents">@*style="height: auto; overflow: visible;"*@
+            <div id="tabAccidents-center"class="pane ui-layout-center">Center <p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p></div>
+            <div id="tabAccidents-east" class="pane ui-layout-east">East<p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p></div>   
+         </div>
+         <div id="tabClaims"></div>
+         <div id="tabMap"></div>
+         <div id="tabReports"></div>
+         <div id="tabLists"></div>
+         <div id="tabAdmin"></div>
+      </div>
+   </div>
+</body>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+
+         Pradziu pradzia
+         <div id="tabAccidents" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+            <div class="pane ui-layout-center" id="tabAccidents-center">Center</div>
+            <div id="tabAccidents-east" class="pane ui-layout-east">East</div>
+         </div>
+
+         Po uzkrovimo tabAccident pasikeicia i
+         <div id="tabAccidents" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-layout-container" style="height: 624px; overflow-x: hidden; overflow-y: hidden; position: relative; ">
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+Pasileidziant
+<div class="pane ui-layout-center" id="tabAccidents-center">Center <p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p>
+</div>
+<div id="tabAccidents-east" class="pane ui-layout-east">East<p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p>
+</div>
+Gryztant
+<div class="pane ui-layout-center" id="tabAccidents-center">Center <p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p>
+</div>
+<div id="tabAccidents-east" class="pane ui-layout-east">East<p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p>
+</div>

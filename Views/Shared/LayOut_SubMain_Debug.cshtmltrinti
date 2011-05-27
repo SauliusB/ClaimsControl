@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>@ViewBag.Title</title><link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css"/>
+   <link href="@Url.Content("~/Content/dataTables.css")" rel="stylesheet" type="text/css"/>
+   <link href="@Url.Content("~/Content/jquery-ui-1.8.10.custom.css")" rel="stylesheet" type="text/css"/>
+   <link rel="shortcut icon" href="../../Content/images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+   <div class="page" id="divMainPage">
+      @RenderBody()
+   </div>
+   <div class="ui-state-default aLineCtrls">
+      <a id="btnGoBack" class="aLeft" href="/">Grįžti į pagrindinį</a>
+      <div id="btn3" class="aRight">
+         <a href="#">Atšaukti pakeitimus</a>
+         <a href="#">Išsaugoti pakeitimus</a>
+         <a href="#">Ištrinti</a>
+      </div>
+   </div>
+</body>
+<script src="@Url.Content("~/Scripts/JSMain/jquery-1.4.4.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/fauxconsole.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/General.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSMain/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSPlugins/jquery-ui-1.8.10.custom.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSPlugins/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/MyPlugins.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/MyPlugins2.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/MyPlugins_ComboBox.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/Server.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSPlugins/jquery.validity.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/objFunc.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/clsLogin.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/clsGrid.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/clsDialogUi.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/clsEditableForm.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/clsEditableList.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSGeneral/clsEditableList_ovr_DriverList.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSForm/Start.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSForm/Tab_AccidentsList.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSForm/Tab_Lists.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JSForm/Form_Accident_Card.js")" type="text/javascript"></script>
+<script type="text/javascript">
+
+   $(document).ready(function () {
+      $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+
+      var p=location.pathname.split("/"), i=p[p.length-1]; i=((parseInt(i)>0)?i:0);
+      if(i==0) $('#Date').val(""); //Bugas Foxo
+
+      //setTimeout("Wait.Show();", 0);
+      MakeSizes();
+      LoadAccident_Card();
+
+      $('#btn3 a').button({ icons: { primary: "ui-icon-close"} }).next().button({ icons: { primary: "ui-icon-check"} }).next().button({ icons: { primary: "ui-icon-trash"} });
+      //$('#btnSaveCh .ui-dialog-buttonpane button:not(:eq(1),:eq(5))').addClass('ui-state-disabled'); //$(":button:contains('Authenticate')").attr("disabled","disabled");//$("#dialog ~ .ui-dialog-buttonpane").children("button:contains('Ok')").button("enable");//disable
+      $('#btn3 a:not(:eq(2))').addClass('ui-state-disabled'); //$(":button:contains('Authenticate')").attr("disabled","disabled");//$("#dialog ~ .ui-dialog-buttonpane").children("button:contains('Ok')").button("enable");//disable
+      $("#btnGoBack").button({ icons: { primary: "ui-icon-circle-arrow-w"} });
+
+      var $tabs=$("#content").tabs({
+         select: function (e, ui) { var thistab=ui.index; $("#tab"+thistab).html(thistab); }
+         //if(/^(\s*)$/.test($("#"+ui.panel.id).html())) {  //Ar tuscias?
+         //    CallServer("", oGLOBAL.Start.SetNewData, ui.panel.id, "/Main/"+ui.panel.id, "json");
+         //}
+         //ui.tab     // anchor element of the selected (clicked) tab
+         //ui.panel   // element, that contains the selected/clicked tab contents
+         //ui.index   // zero-based index of the selected (clicked) tab
+      });
+      var lst=[{ FName: 'tblAccidentsTypes', ValI: 0, ArrTextI: [1] }, { FName: 'tblDrivers', ValI: 0, ArrTextI: [1, 2]}];
+      var cb="oGLOBAL.temp.FinalSetup();"; //turi eit po lst-ui padarymo
+      oGLOBAL.Start.FormLoaded({ SPar: "GetLists", url: "/Cards/GetAccidentLists", APar: { Lists: lst, CallBack: cb} });
+   });
+</script>
+</html>

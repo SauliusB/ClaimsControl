@@ -1,0 +1,31 @@
+﻿@model CC.Models.clsVehicle
+<div id="ListRecordEditForm" class="inputform"
+data-ctrl='{"NewRec":1,"Source":"proc_Vehicles","tblUpdate":"tblVehicles"@((Model.NewRec == 1) ? "" : ",\"id\":" + Model.Vehicle.ID)}'>
+   @{if (Model.NewRec == 1) {
+      <div class='HalfDivleft'>
+         <div class='ExtendIt' data-ctrl='{"Field":"TypeID","classes":"UpdateField","id":"lstTypeID","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"MakeID","classes":"UpdateField","id":"lstMakeID","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"Year","classes":"UpdateField","id":"Year","labelType":"Left"}'></div>
+      </div>
+      <div class='HalfDivright'>
+         <div class='ExtendIt' data-ctrl='{"Field":"Plate","classes":"UpdateField","id":"Plate","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Field":"Model","classes":"UpdateField","id":"Model","labelType":"Left"}'></div>
+      </div>
+     }
+     else {
+      <div class='HalfDivleft'>
+         <div class='ExtendIt' data-ctrl='{"Value":@Model.Vehicle.TypeID, "Field":"TypeID","classes":"UpdateField","id":"lstTypeID","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Value":@Model.Vehicle.MakeID, "Field":"MakeID","classes":"UpdateField","id":"lstMakeID","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Vehicle.Year", "Field":"Year","classes":"UpdateField","id":"Year","labelType":"Left"}'></div>
+      </div>
+      <div class='HalfDivright'>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Vehicle.Plate", "Field":"Plate","classes":"UpdateField","id":"Plate","labelType":"Left"}'></div>
+         <div class='ExtendIt' data-ctrl='{"Value":"@Model.Vehicle.Model", "Field":"Model","classes":"UpdateField","id":"Model","labelType":"Left"}'></div>
+         <div id="divStatusPanel" class="ui-widget-content ui-corner-all" data-EndDate="@((Model.Vehicle.EndDate.HasValue) ? Model.Vehicle.EndDate.Value.ToString("yyyy.MM.dd") : "")" data-End='{"UpdateField":"EndDate","Tip":"Nebenaudojama nuo","NotUsed":"Nenaudojama nuo","ToNotUsed":"Perkelti prie nenaudojamų","ToUsed":"Grąžinti prie naudojamų"}'>
+         </div>
+      </div>
+     }}
+   <div class='clearfix'></div>
+   <center style="margin: 2em 0;"><a id="btnListRecordSave" href="#">Išsaugoti</a><a style="margin-left: 2%;" id="btnListRecordCancel" href="#">Atšaukti</a></center>
+   <div class="DocsRow"><strong>Dokumentai:</strong><img src="/Content/images/grapke.png" alt="" style="margin: auto 0.5em auto 3em" /><a id="#AttachListDocs" href="#">Prisegti naują dokumentą</a></div>
+</div>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>@ViewBag.Title</title><link href="@Url.Content("~/Content/System-11-03-01.min.css")" rel="stylesheet" type="text/css"/>
+   @*    <link rel="shortcut icon" href="Content/images/favicon.ico" type="image/x-icon" />
+*@ <link rel="shortcut icon" href="../../Content/images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+   <div class="page" id="divMainPage">
+      @RenderBody()
+   </div>
+</body>
+<script src="@Url.Content("~/Scripts/Final/Mod-11-03-01.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function () {
+      $.blockUI();
+      window.onresize=function () { window.setTimeout("MakeSizes()", 100); }
+      MakeSizes();
+      var $tabs=$("#content").tabs({
+         select: function (e, ui) {
+            var thistab=ui.index;
+            $("#tab"+thistab).html(thistab);
+            if(/^(\s*)$/.test($("#"+ui.panel.id).html())) {
+               setTimeout($(ui.tab).data("ctrl").CallFunc, 0);
+            }
+         }
+      });
+      CallServer("", oGLOBAL.Start.SetNewData, "tabAccidents", "/Main/tabAccidents", "json");
+   });
+</script>
+</html>

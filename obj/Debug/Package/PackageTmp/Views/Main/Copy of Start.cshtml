@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html1>
+<html>
+<head>
+   <title>Žalų valdymo sistema</title>
+   <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css"/>
+   <link href="@Url.Content("~/Content/dataTables.css")" rel="stylesheet" type="text/css"/>
+   <link href="@Url.Content("~/Content/jquery-ui-1.8.10.custom.css")" rel="stylesheet" type="text/css"/>
+   <link rel="shortcut icon" href="../../Content/images/favicon.ico" type="image/x-icon" />
+   <style type="text/css">
+      
+   </style>
+</head>
+<body>
+   <div id="divMainPage">
+      <div id="divlogindisplay">
+         @Html.Partial("_LogOnPartial")
+      </div>
+      <div id="divMainTabMenu"><ul id='ulMainMenu'>
+         <li><a href="#tab-tabAccidents" data-ctrl='{"CallFunc":"CallServer("", oGLOBAL.Start.fnSetNewData, {"Ctrl":ui.panel.id}, "/Main/"+ui.panel.id, "json");"}'><span>ĮVYKIAI</span></a></li>
+         <li><a href="#tab-tabClaims" data-ctrl='{"CallFunc":"Tab_Claims();"}'><span>ŽALŲ REGULIAVIMAS</span></a></li>
+         <li><a href="#tab-tabMap" data-ctrl='{"CallFunc":"Tab_Map();"}'><span>ŽEMĖLAPIS</span></a></li>
+         <li><a href="#tab-tabReports" data-ctrl='{"CallFunc":"Tab_Reports();"}'><span>ATASKAITOS</span></a></li>
+         <li><a href="#tab-tabLists" data-ctrl='{"CallFunc":"Tab_Lists();"}'><span>SĄRAŠAI</span></a></li>
+         <li style="float: right"><a href="#tab-tabAdmin" data-ctrl='{"CallFunc":"Tab_Admin();"}'><span>ADMINISTRAVIMAS</span></a></li>
+      </ul>
+         <div id="tab-tabAccidents">
+            <div id="tabAccidents">
+               <div class="pane ui-layout-center" id="tabAccidents-center">Center</div>
+               <div id="tabAccidents-east" class="pane ui-layout-east">East</div>
+            </div>
+         </div>
+         <div id="tab-tabClaims">
+            <div id="tabClaims"></div>
+         </div>
+         <div id="tab-tabMap">
+            <div id="tabMap"></div>
+         </div>
+         <div id="tab-tabReports">
+            <div id="tabReports"></div>
+         </div>
+         <div id="tab-tabLists">
+            <div id="tabLists"></div>
+         </div>
+         <div id="tab-tabAdmin">
+            <div id="tabAdmin"></div>
+         </div>
+      </div>
+   </div>
+   <script src="@Url.Content("~/Scripts/JSMain/jquery-1.4.4.min.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/fauxconsole.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/General.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSMain/json2.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSPlugins/jquery-ui-1.8.10.custom.min.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSPlugins/jquery.dataTables.min.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/MyPlugins.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/MyPlugins2.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/MyPlugins_ComboBox.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/Server.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSPlugins/jquery.validity.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/objFunc.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/clsLogin.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/clsGrid.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/clsDialogUi.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/clsEditableForm.js")" type="text/javascript"></script>
+   <script
+   src="@Url.Content("~/Scripts/JSGeneral/clsEditableList.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSGeneral/clsEditableList_ovr_DriverList.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSForm/Start.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSForm/Tab_AccidentsList.js")"
+   type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSForm/Tab_Lists.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/JSForm/Form_Accident_Card.js")"
+   type="text/javascript"></script>
+   <script type="text/javascript">
+      $(document).ready(function() {
+         $.blockUI();
+         window.onresize=function() { window.setTimeout("oGLOBAL.Start.MakeSizes()", 100); }
+         oGLOBAL.Start.MakeSizes();
+         var $tabs=$("#divMainTabMenu").tabs({
+            select: function(e, ui) {
+               var thistab=ui.index;
+               $("#tab"+thistab).html(thistab);
+               if(/^(\s*)$/.test($("#"+ui.panel.id).children(":first").html())) {  //Ar tuscias (pirmas vaikas)?
+                  setTimeout($(ui.tab).data("ctrl").CallFunc, 0);
+               }
+            }
+         }).removeClass('ui-corner-all').find('ul,li').removeClass('ui-corner-all ui-corner-top'); //; ui-widget-content
+         CallServer("", oGLOBAL.Start.fnSetNewData, { "Ctrl": "tabAccidents" }, "/Main/tabAccidents", "json"); //Sudedam duomenis i pirma taba
+      });
+   </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿@model CC.Models.LogOnModel
+@{
+    ViewBag.Title = "Prisijungimas prie sistemos";
+    Layout = "LogOn_Layout.cshtml";
+}
+<h2>Prisijungimas prie sistemos</h2>
+<p>Įveskit e-paštą ir slaptažodį. @Html.ActionLink("Registruokitės", "Register") jeigu dar neprisiregistravote. </p>
+@Html.ValidationSummary(true, "Nepavyko prisijungti. Mėginkite dar kartą.")
+@using (Html.BeginForm())
+{
+    <div id="divLogOn">
+        <fieldset><legend>Paskyros informacija</legend>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Email) @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.Password) @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="editor-label">
+                @Html.CheckBoxFor(m => m.RememberMe) @Html.LabelFor(m => m.RememberMe)
+            </div>
+            <p><input type="submit" value="Prisijungti" />
+            </p>
+        </fieldset>
+    </div>
+}

@@ -1,0 +1,78 @@
+<div id='divClaimCard' data-ctrl='{"id":"4","NewRec":"0","Source":"tblClaims","ClaimTypeID":""}'>
+		<div class='HalfDivleft'>
+				<div class='ExtendIt' data-ctrl='{"Value":3,"Field":"VehicleID","classes":"UpdateField","id":"lstVehicles","labelType":"Top"}'></div>
+				<div class='ExtendIt' data-ctrl='{"Value":2,"Field":"InsPolicyID","classes":"UpdateField","id":"lstInsPolicies","labelType":"Top"}'></div>
+				<div class='ExtendIt' data-ctrl='{"Value":"285-k3opa","Field":"InsurerClaimID","classes":"UpdateField","labelType":"Top"}'></div>
+		</div>
+		<div class='HalfDivright'>
+				<div class='ExtendIt' data-ctrl='{"Value":1050.55,"Field":"LossAmount","classes":"LossAmount UpdateField","labelType":"Top"}'></div>
+				<div class='ExtendIt' data-ctrl='{"Value":650,"Field":"InsuranceClaimAmount","classes":"InsuranceClaimAmount UpdateField","labelType":"Top"}'></div>
+		</div>
+		<div class='frmbottom'>
+				<button id='btnDelete' title='iðtrinti þalà' class='floatleft ui-button ui-corner-all ui-icon-only' " role="button">
+				<span class="ui-button-icon-primary ui-icon ui-icon-trash"></span>
+				</button>
+				<div class='floatright'>
+						<button id='btnSaveClaim' title='Iðsaugoti pakeitimus' class='BtnBackGreen ui-button ui-corner-all ui-button-text-icon-primary' " role="button">
+						<span class="ui-button-text">IÐSAUGOTI</span>
+						</button>
+						<a id='btnCancelClaim' href='javascript:void(0);return false;'>Atðaukti</a>
+				</div>
+		</div>
+</div>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<label>
+<div>Þalos nr. draudiko sistemoje</div>
+<input type='text' title='Þalos nr. draudiko sistemoje' data-ctrl='{"Validity":"require().nonHtml().maxLength(50)","Value":"285-k3opa","Field":"InsurerClaimID"}' 
+class='ui-widget-content ui-corner-all UpdateField text' />
+</label>
+
+<label>OpaOpaOpapa
+<input type="text" class="ui-widget-content ui-corner-all LossAmount UpdateField" 
+data-ctrl="{"Validity":"require().match(number).greaterThanOrEqualTo(0)","Value":658,"Field":"LossAmount"}" title="Planuojama þalos suma">
+</label>
+
+
+
+
+<div class="ExtendIt" data-ctrl="{"Value":0,"Field":"VehicleID","classes":"UpdateField","id":"lstVehicles","labelType":"Top"}">
+<label>
+<span>Transporto priemonë</span>
+<input style="width: 338px;" aria-haspopup="true" aria-autocomplete="list" role="textbox" autocomplete="off" id="lstVehicles" title="Transporto priemonë" 
+data-ctrl="{"Tip":"Valst.Nr., markë, modelis arba metai..","Source":"tblVehicles","iVal":0,"iText":[1,2,3,4],"Editable":1,"ListType":"None","Value":0,"Field":"VehicleID"}"
+ class="ui-widget-content UpdateField text ui-autocomplete-input ui-corner-left" type="text">
+ <button style="vertical-align: bottom; width: 22px; height: 25px;" aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-icon-primary ui-button-icon-only ui-button-icon ui-corner-right ui-state-green" title="Pridëti naujà" tabindex="-1"><span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span><span class="ui-button-text">&nbsp;</span></button></label></div><div class="ExtendIt" data-ctrl="{"Value":0,"Field":"InsPolicyID","classes":"UpdateField","id":"lstInsPolicies","labelType":"Top"}"><label><span>Polisas</span><input readonly="readonly" style="width: 316px;" aria-haspopup="true" aria-autocomplete="list" role="textbox" autocomplete="off" id="lstInsPolicies" title="Polisas" data-ctrl="{"Tip":"Pasirinkite ið sàraðo..","Source":"tblInsPolicies","iVal":0,"iText":[1,2],"Editable":1,"ListType":"List","Append":{"id":0,"value":"Neapdrausta"},"Value":0,"Field":"InsPolicyID"}" class="ui-widget-content UpdateField text ui-autocomplete-input ui-corner-left" type="text"><button style="vertical-align: bottom; width: 22px; height: 25px;" aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-icon-primary ui-button-icon-only ui-button-icon" title="Parodyti visus" tabindex="-1"><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-text">&nbsp;</span></button><button style="vertical-align: bottom; width: 22px; height: 25px;" aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-icon-primary ui-button-icon-only ui-button-icon ui-corner-right ui-state-green" title="Pridëti naujà" tabindex="-1"><span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span><span class="ui-button-text">&nbsp;</span></button></label></div><div class="ExtendIt" data-ctrl="{"Value":"" field="" insurerclaimid="" classes="" updatefield="" ,="" labeltype="" :="" top="" }=""></div>
+ 
+ 
+ 
+ 
+
+
+
+      <div id='divMapHead'>
+         <div class='dialog-form-label'>Ávykio vieta:</div>
+         <input type='text' value="Nurodykite spragtelëjimu þemëlapyje.." class='text ui-widget ui-widget-content ui-corner-all defaultTextActive' title='Ávykio vieta'
+            id='txtPlace' disabled='disabled' />
+			
+         <div class="c" style="width: 100%;">
+            <div style="float: right"><span><input type='text' style="width: 400px;" id='inputChooseTown' data-ctrl='{"Tip":"Áveskite miestà parodyti þemëlapyje.."}'
+               class='text ui-widget-content ui-corner-all defaultText defaultTextActive' />
+               <button id='btnMapTown' onclick='GetMapFromTown();'>Rodyti þemëlapyje</button>
+            </span>
+            </div>
+         </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
