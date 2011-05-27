@@ -28,11 +28,9 @@ function Tab_AccidentsList(Tab) {
    }, oDATA.Get("proc_Accidents"));      //oTable
 
    Call_fnRowCallback=0; //Kad nesauktu ant fnFilter
-   
-   
+
    //$("div.dataTables_scrollHead").remove(); //panaikinam headerio likucius
-   
-   
+
    $("#txtAccidentsSearch").keyup(function() {
       oTable.fnFilter(this.value);
    });
@@ -100,12 +98,17 @@ function Tab_AccidentsList(Tab) {
             if($(t).hasClass("NewClaim")) {
                $(nTr).find('td').html(CancelNewClaimHtml); return false;
             } else { $("#trClaimCard").prev().removeClass("ClaimIsOpen").end().remove(); }
+            $(".validity-modal-msg").remove();
          }
          else if($(t).hasClass('btnSaveClaim')) {
-            var cb=fnServerUpdated, frm, Action, Msg;
-            if($(e.target).hasClass("NewClaim")) {
+            //var cb=fnServerUpdated, frm, Action, Msg;
+            var frm, Action, Msg;
+
+            if($(e.target).hasClass("NewClaim")||$(e.target).parent().hasClass("NewClaim")) {
                frm=$('#divNewClaimCard'); Action='Add'; Msg={ Title: "Naujos žalos sukūrimas", Success: "Nauja žala sukurta.", Error: "Nepavyko išsaugot naujos žalos." }
-            } else { frm=$('#divClaimCard'); Action='Edit'; Msg={ Title: "Žalos redagavimas", Success: "Žalos duomenys pakeisti.", Error: "Nepavyko pakeisti žalos duomenų." }; }
+            } else {
+               frm=$('#divClaimCard'); Action='Edit'; Msg={ Title: "Žalos redagavimas", Success: "Žalos duomenys pakeisti.", Error: "Nepavyko pakeisti žalos duomenų." };
+            }
             var DataToSave=oGLOBAL.ValidateForm(frm, [{ Fields: "AccidentID", Data: $('#tblClaims').data('ctrl').AccidentID }, { Fields: "ClaimTypeID", Data: frm.data("ctrl").ClaimTypeID}]);
             if(DataToSave) {
                DataToSave["Ext"]=$('#tblClaims').data('ctrl').AccidentID;
@@ -218,8 +221,8 @@ function Tab_AccidentsList(Tab) {
          HTML+="<div class='ExtendIt' data-ctrl='{\"Value\":"+Claim.Days+",\"Field\":\"Days\",\"classes\":\"UpdateField\",\"id\":\"inputDays\",\"labelType\":\"Top\"}'></div>";
          HTML+="<div class='ExtendIt' data-ctrl='{\"Value\":"+Claim.PerDay+",\"Field\":\"PerDay\",\"classes\":\"UpdateField\",\"id\":\"inputPerDay\",\"labelType\":\"Top\"}'></div>";
 
-         //HTML+="<div class='ExtendIt' data-ctrl='{\"Value\":"+Claim.LossAmount+",\"id\":\"inputSum\",\"attr\":\"DISABLED\",\"labelType\":\"Top\"}'></div>"; //(Math.round((Claim.Days*Claim.PerDay*100))/100)
-         HTML+="<div>"+oCONTROLS.txt({ "text": 2500, "title": "Nuostolio suma", "classes": 'text', "id": "inputSum", "attr": "DISABLED", "label": { "txt": "Nuostolio suma", "type": "Top"} })+"</div>";
+         HTML+="<div class='ExtendIt' data-ctrl='{\"Value\":"+(Math.round((Claim.Days*Claim.PerDay*100))/100)+",\"Field\":\"LossAmount\",\"classes\":\"UpdateField\",\"id\":\"inputSum\",\"attr\":\"DISABLED\",\"labelType\":\"Top\"}'></div>"; //
+         //HTML+="<div>"+oCONTROLS.txt({ "text": 2500, "title": "Nuostolio suma", "classes": 'text', "id": "inputSum", "attr": "DISABLED", "label": { "txt": "Nuostolio suma", "type": "Top"} })+"</div>";
 
          HTML+="</div><div class='HalfDivright'>";
          HTML+=lstVehicles;
@@ -290,9 +293,6 @@ function Tab_AccidentsList(Tab) {
       //               +aData[9]+'</b></div>'+aData[7]+'</td><td align="right"><div>Visos žalos: <b>'  //ShortNote ir LossSum
       //               +aData[5]+'</b></div>Atviros: <b>'+aData[6]+'</b></td><td>'+p+'</td>');  //CNo_All ir CNo_NotF ir pav.
    }
-
-
-
 
    function _fnHeaderCallback(nHead, aasData, iStart, iEnd, aiDisplay) {
       //$(nHead).append('<th class="ui-state-default">Kas atsitiko22</th>');
